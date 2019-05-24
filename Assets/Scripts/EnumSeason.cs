@@ -3,8 +3,8 @@ using System.Collections.Generic;
 
 public enum Season
 {
-    Summer,
-    Fall,
-    Winter,
-    Spring
+    SUMMER,
+    FALL,
+    WINTER,
+    SPRING
 }
