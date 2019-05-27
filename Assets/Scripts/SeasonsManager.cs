@@ -35,6 +35,8 @@ public class SeasonsManager : Singleton<SeasonsManager>
         }
     }
 
+    private Season lastSeason;
+
     private void Awake()
     {
         UpdateSeasonEvent = new SeasonEvent();
@@ -47,8 +49,9 @@ public class SeasonsManager : Singleton<SeasonsManager>
 
     }
 
-    public Season changeSeasonForwards() 
+    public Season ChangeSeasonForwards() 
     {
+        lastSeason = currentSeason;
         currentSeasonIndex++;
         if (currentSeasonIndex >= seasons.Length)
         {
@@ -58,8 +61,9 @@ public class SeasonsManager : Singleton<SeasonsManager>
         return currentSeason;
     }
 
-    public Season changeSeasonBackwards()
+    public Season ChangeSeasonBackwards()
     {
+        lastSeason = currentSeason;
         currentSeasonIndex--;
         if (currentSeasonIndex < 0)
         {
@@ -68,8 +72,13 @@ public class SeasonsManager : Singleton<SeasonsManager>
         return currentSeason;
     }
 
-    public void triggerUpdateSeasonEvent()
+    public void TriggerUpdateSeasonEvent()
     {
         UpdateSeasonEvent.Invoke(currentSeason);
+    }
+
+    public Season GetLastSeason()
+    {
+        return lastSeason;
     }
 }
