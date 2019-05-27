@@ -12,29 +12,10 @@ public class SeasonEvent : UnityEvent<Season>
 
 public class SeasonsManager : Singleton<SeasonsManager>
 {
+    public UnityEvent<Season> UpdateSeasonEvent;
+    private Season currentSeason;
     private Season[] seasons;
     private int currentSeasonIndex;
-    public UnityEvent<Season> UpdateSeasonEvent;
-    public Season currentSeason 
-    {
-        get 
-        {
-            return seasons[currentSeasonIndex];
-        }
-        set
-        {
-            int index = Array.IndexOf(seasons, value);
-            
-            if (index == -1)
-            {
-                throw new Exception("Element not found in Seasons array");
-            }
-            
-            currentSeasonIndex = index; 
-            currentSeason = value;
-        }
-    }
-
     private Season lastSeason;
 
     private void Awake()
@@ -80,5 +61,24 @@ public class SeasonsManager : Singleton<SeasonsManager>
     public Season GetLastSeason()
     {
         return lastSeason;
+    }
+
+    public Season GetCurrentSeason()
+    {
+        return seasons[currentSeasonIndex];
+
+    }
+
+    public void SetCurrentSeason(Season season)
+    {
+        int index = Array.IndexOf(seasons, season);
+        
+        if (index == -1)
+        {
+            throw new Exception("Element not found in Seasons array");
+        }
+        
+        currentSeasonIndex = index; 
+        currentSeason = season;
     }
 }
