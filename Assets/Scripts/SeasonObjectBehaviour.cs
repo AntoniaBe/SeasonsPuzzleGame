@@ -9,7 +9,7 @@ public class SeasonObjectBehaviour : MonoBehaviour
     void Start()
     {
         seasonsManager = SeasonsManager.Instance;
-        seasonsManager.UpdateSeason.AddListener(UpdateRepresentation);
+        seasonsManager.UpdateSeasonEvent.AddListener(UpdateRepresentation);
     }
 
     private void UpdateRepresentation(Season currentSeason)
