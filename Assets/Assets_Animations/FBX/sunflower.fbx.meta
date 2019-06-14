@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: c4d73c4120c22df4384c3c77ad8d6257
+guid: 8b1234aa12881e94797785edc3ac88ed
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -921,6 +921,7 @@ ModelImporter:
     400914: //RootNode
     2100000: Mat
     2100002: No Name
+    2100004: Mat.3
     2300000: BlattStiel
     2300002: BlattStiel_1
     2300004: BlattStiel_2
@@ -1002,9 +1003,9 @@ ModelImporter:
     4300100: BlattStiel_1
     4300102: Ebene_3
     4300104: BlattStiel
-    4300106: Stiel
-    4300108: sonnenblume_kopf
-    7400000: Cinema_4D_Basis
+    4300106: sonnenblume_kopf
+    4300108: Stiel
+    7400000: Sunflower_Animation
     9500000: //RootNode
     13700000: Sonnenblumenblatt_1
     13700002: Sonnenblumenblatt_10
@@ -1074,7 +1075,35 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Sunflower_Animation
+      takeName: Cinema_4D_Basis
+      firstFrame: -2
+      lastFrame: 75
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

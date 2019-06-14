@@ -1,0 +1,239 @@
+fileFormatVersion: 2
+guid: 0385ded94146e1d438fc4191609ccf34
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CarrotBody
+    100002: //RootNode
+    100004: Joint
+    100006: Joint_1
+    100008: Joint_1_2
+    100010: Joint_1_3
+    100012: Joint_1_4
+    100014: Joint_1_5
+    100016: Joint_1_6
+    100018: Joint_2
+    100020: Joint_2_2
+    100022: Joint_2_3
+    100024: Joint_2_4
+    100026: Joint_2_5
+    100028: Joint_2_6
+    100030: Joint_3
+    100032: Joint_3_2
+    100034: Joint_3_3
+    100036: Joint_3_4
+    100038: Joint_3_5
+    100040: Joint_3_6
+    100042: Joint_4
+    100044: Joint_4_2
+    100046: Joint_4_3
+    100048: Joint_4_4
+    100050: Joint_4_5
+    100052: Joint_4_6
+    100054: Joint_5
+    100056: Joint_5_2
+    100058: Joint_5_3
+    100060: Joint_5_4
+    100062: Joint_5_5
+    100064: Joint_5_6
+    100066: Joint_6
+    100068: Joint_6_2
+    100070: Joint_6_3
+    100072: Joint_6_4
+    100074: Joint_6_5
+    100076: Joint_7
+    100078: Joint_8
+    100080: Root
+    100082: Root_2
+    100084: Root_3
+    100086: Root_4
+    100088: Root_5
+    100090: Root_6
+    100092: Strauch1
+    100094: Strauch2
+    100096: Strauch3
+    100098: Strauch4
+    100100: Strauch5
+    100102: "Str\xE4uche"
+    400000: CarrotBody
+    400002: //RootNode
+    400004: Joint
+    400006: Joint_1
+    400008: Joint_1_2
+    400010: Joint_1_3
+    400012: Joint_1_4
+    400014: Joint_1_5
+    400016: Joint_1_6
+    400018: Joint_2
+    400020: Joint_2_2
+    400022: Joint_2_3
+    400024: Joint_2_4
+    400026: Joint_2_5
+    400028: Joint_2_6
+    400030: Joint_3
+    400032: Joint_3_2
+    400034: Joint_3_3
+    400036: Joint_3_4
+    400038: Joint_3_5
+    400040: Joint_3_6
+    400042: Joint_4
+    400044: Joint_4_2
+    400046: Joint_4_3
+    400048: Joint_4_4
+    400050: Joint_4_5
+    400052: Joint_4_6
+    400054: Joint_5
+    400056: Joint_5_2
+    400058: Joint_5_3
+    400060: Joint_5_4
+    400062: Joint_5_5
+    400064: Joint_5_6
+    400066: Joint_6
+    400068: Joint_6_2
+    400070: Joint_6_3
+    400072: Joint_6_4
+    400074: Joint_6_5
+    400076: Joint_7
+    400078: Joint_8
+    400080: Root
+    400082: Root_2
+    400084: Root_3
+    400086: Root_4
+    400088: Root_5
+    400090: Root_6
+    400092: Strauch1
+    400094: Strauch2
+    400096: Strauch3
+    400098: Strauch4
+    400100: Strauch5
+    400102: "Str\xE4uche"
+    2100000: Mat.1
+    2100002: Mat
+    4300000: Strauch1
+    4300002: Strauch2
+    4300004: Strauch3
+    4300006: Strauch4
+    4300008: Strauch5
+    4300010: CarrotBody
+    7400000: Carrot_Animation
+    9500000: //RootNode
+    13700000: CarrotBody
+    13700002: Strauch1
+    13700004: Strauch2
+    13700006: Strauch3
+    13700008: Strauch4
+    13700010: Strauch5
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Carrot_Animation
+      takeName: Cinema_4D_Basis
+      firstFrame: -2
+      lastFrame: 96
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.02
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
