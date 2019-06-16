@@ -25,9 +25,17 @@ public class SeasonsManager : Singleton<SeasonsManager>
         currentSeasonIndex = 0;
     }
 
-    private void Start()
+    private void Update()
     {
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            ChangeSeasonBackwards();
+        }
 
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            ChangeSeasonForwards();
+        }
     }
 
     public Season ChangeSeasonForwards() 
@@ -38,7 +46,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
         {
             currentSeasonIndex = 0;
         }
-        
+        TriggerUpdateSeasonEvent();
         return currentSeason;
     }
 
@@ -50,12 +58,13 @@ public class SeasonsManager : Singleton<SeasonsManager>
         {
             currentSeasonIndex = seasons.Length - 1;
         }
+        TriggerUpdateSeasonEvent();
         return currentSeason;
     }
 
     public void TriggerUpdateSeasonEvent()
     {
-        UpdateSeasonEvent.Invoke(currentSeason);
+        UpdateSeasonEvent.Invoke(GetCurrentSeason());
     }
 
     public Season GetLastSeason()
@@ -66,7 +75,6 @@ public class SeasonsManager : Singleton<SeasonsManager>
     public Season GetCurrentSeason()
     {
         return seasons[currentSeasonIndex];
-
     }
 
     public void SetCurrentSeason(Season season)

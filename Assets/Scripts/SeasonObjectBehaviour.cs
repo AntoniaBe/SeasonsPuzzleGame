@@ -12,8 +12,8 @@ public class SeasonObjectBehaviour : MonoBehaviour
         seasonsManager.UpdateSeasonEvent.AddListener(UpdateRepresentation);
     }
 
-    private void UpdateRepresentation(Season currentSeason)
+    public virtual void UpdateRepresentation(Season currentSeason)
     {
-        Debug.Log(currentSeason);
+        
     }
 }
