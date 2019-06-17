@@ -19,6 +19,12 @@ Shader "SyntyStudios/Trees"
 		_Cutoff( "Mask Clip Value", Float ) = 0.5
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
+
+		//GrayScale
+		_Position("World Position", Vector) = (0,0,0,0)
+		_Radius("Radius",Range(0,50)) = 0
+		_Softness("Sphere Softness", Range(0,100)) = 0
+
 	}
 
 	SubShader
@@ -39,6 +45,7 @@ Shader "SyntyStudios/Trees"
 		struct Input
 		{
 			float2 uv_texcoord;
+			float3 worldPos;
 		};
 
 		uniform float _Small_WindAmount;
@@ -56,6 +63,11 @@ Shader "SyntyStudios/Trees"
 		uniform float4 _Emission_ST;
 		uniform float4 _EmissionColor;
 		uniform float _Cutoff = 0.5;
+
+		//GrayScale
+		float4 _Position;
+		half _Radius;
+		half _Softness;
 
 
 		float4 CalculateContrast( float contrastValue, float4 colorTarget )
@@ -81,7 +93,22 @@ Shader "SyntyStudios/Trees"
 		{
 			float2 uv_MainTexture = i.uv_texcoord * _MainTexture_ST.xy + _MainTexture_ST.zw;
 			float4 tex2DNode2 = tex2D( _MainTexture, uv_MainTexture );
-			o.Albedo = ( tex2DNode2 * _ColorTint ).rgb;
+
+			//Grayscale
+
+			fixed4 c = (tex2DNode2 * _ColorTint);
+
+
+			half grayscale = half((c.r + c.g + c.b)*0.111);
+			fixed3 c_g = (grayscale, grayscale, grayscale);
+
+			half dis = distance(_Position, i.worldPos);
+			half sum = saturate((dis - _Radius) / -_Softness);
+			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+
+			o.Albedo = lerpColor.rgb;
+			//o.Albedo = ( tex2DNode2 * _ColorTint ).rgb;
+
 			float2 uv_Emission = i.uv_texcoord * _Emission_ST.xy + _Emission_ST.zw;
 			o.Emission = ( tex2D( _Emission, uv_Emission ) * _EmissionColor ).rgb;
 			o.Alpha = 1;
