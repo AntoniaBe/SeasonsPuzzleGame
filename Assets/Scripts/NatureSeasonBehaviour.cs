@@ -8,9 +8,6 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     private Texture defaultTexture = null;
 
     [SerializeField]
-    private Texture skyBoxDefault = null;
-
-    [SerializeField]
     private Material natureMaterial = null;
 
     [SerializeField]
