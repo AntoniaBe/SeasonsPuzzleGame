@@ -5,15 +5,18 @@ using UnityEngine;
 public class TreeSeasonBehaviour : SeasonObjectBehaviour
 {
     [SerializeField]
-    private Texture[] textures = null;
+    private Material[] seasonMaterials;
 
     public override void UpdateRepresentation(Season currentSeason)
     {
-        Debug.Log(currentSeason);
-        foreach (var rend in GetComponentsInChildren<Renderer>())
-        {
-            Debug.Log(rend.name);
-            rend.material.SetTexture("_MainTexture", textures[(int)currentSeason]);
-        }
+        base.UpdateRepresentation(currentSeason);
+        SetMaterial(seasonMaterials[(int)currentSeason]);
+    }
+
+    private void SetMaterial(Material material)
+    {
+        var newMaterials = GetComponentInChildren<Renderer>().materials;
+        newMaterials[1] = material;
+        GetComponentInChildren<Renderer>().materials = newMaterials;
     }
 }
