@@ -107,8 +107,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdfd356f074311439addc9691525b10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultTexture: {fileID: 2800000, guid: 2edd58f7c433e934db9029c375173b44, type: 3}
+  skyBoxDefault: {fileID: 0}
   natureMaterial: {fileID: 2100000, guid: b72e16591230315448c77c827b522ae1, type: 2}
-  textures:
+  skyBox: {fileID: 0}
+  skyBoxTextures:
+  - {fileID: 2800000, guid: cefcb4452f7b6c84fa4d890c7dc8b5e9, type: 3}
+  - {fileID: 2800000, guid: 1202e6a7c7a1de2499a2c339a4382c9e, type: 3}
+  - {fileID: 2800000, guid: 9d242fe8b20b3b249b11298c2fed0672, type: 3}
+  - {fileID: 2800000, guid: 2a7a0456a654acb46b4fa440da5c5902, type: 3}
+  environmentTextures:
   - {fileID: 2800000, guid: 32fec0eb86c0b6048a0734b8e5ab6b50, type: 3}
   - {fileID: 2800000, guid: 7201fd3a77ea67948a4ba89acc8e13ab, type: 3}
   - {fileID: 2800000, guid: b379d131bd8a0a94bbe0c68e1c3fb4ce, type: 3}
