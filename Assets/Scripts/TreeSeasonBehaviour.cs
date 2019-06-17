@@ -16,7 +16,7 @@ public class TreeSeasonBehaviour : SeasonObjectBehaviour
     private void SetMaterial(Material material)
     {
         var newMaterials = GetComponentInChildren<Renderer>().materials;
-        newMaterials[1] = material;
+        newMaterials[newMaterials.Length - 1] = material;
         GetComponentInChildren<Renderer>().materials = newMaterials;
     }
 }
