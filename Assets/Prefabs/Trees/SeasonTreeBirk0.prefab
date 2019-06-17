@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7617508940205647067}
   - component: {fileID: 7740915084828750518}
   m_Layer: 0
-  m_Name: SeasonTreeBirk
+  m_Name: SeasonTreeBirk0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,14 +103,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7740329632529162465}
-  m_LocalRotation: {x: -0.40822002, y: 0.23456722, z: -0.10938323, w: 0.8754256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.5128031, y: -1.0547183, z: 3.1356406}
   m_LocalScale: {x: 1.4766, y: 1.4766002, z: 1.4765999}
   m_Children:
   - {fileID: 5667186378006865919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -41.561, y: 41.93, z: -30.79}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!205 &7617508940205647067
 LODGroup:
   m_ObjectHideFlags: 0
@@ -146,9 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faa72890bf592a4fbb18e2cc75ea53f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultMaterial: {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
   seasonMaterials:
   - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
-  - {fileID: 2100000, guid: eb86d083461737c4d93d11021d69ba5c, type: 2}
+  - {fileID: 2100000, guid: c565ec8004407544a89e542d65132d98, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
-  - {fileID: 2100000, guid: d782eb9dd0e7bf149bcc879a4da28434, type: 2}
+  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}

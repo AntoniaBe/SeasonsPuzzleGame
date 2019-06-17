@@ -150,7 +150,7 @@ MonoBehaviour:
   seasonMaterials:
   - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
   - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
-  - {fileID: 2100000, guid: 20238a93bc24a994a91a72ed08436a3e, type: 2}
+  - {fileID: 2100000, guid: 484f68ebb25012b48b561c6a58eac81b, type: 2}
   - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
 --- !u!1 &1337459308678462695
 GameObject:

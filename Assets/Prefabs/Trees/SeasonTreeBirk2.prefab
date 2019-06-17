@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8026896445140954608}
   - component: {fileID: 6009606292855699477}
   m_Layer: 0
-  m_Name: SM_Tree_Birch_03
+  m_Name: SeasonTreeBirk2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7906381858727921610}
-  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.2343903, y: -2.1141825, z: 2.1552663}
   m_LocalScale: {x: 1.5096, y: 1.5096002, z: 1.5095999}
   m_Children:
@@ -73,7 +73,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
   - {fileID: 2100000, guid: c565ec8004407544a89e542d65132d98, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
-  - {fileID: 2100000, guid: d782eb9dd0e7bf149bcc879a4da28434, type: 2}
+  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
 --- !u!1 &7906802596596798504
 GameObject:
   m_ObjectHideFlags: 0

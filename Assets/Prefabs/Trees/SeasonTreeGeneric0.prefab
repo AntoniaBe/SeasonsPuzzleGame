@@ -226,6 +226,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seasonMaterials:
   - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
-  - {fileID: 2100000, guid: 838e6b286a44c2541bc26f4402ec1625, type: 2}
+  - {fileID: 2100000, guid: bdbf110afd2c6d04ea3e3640d8758063, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
-  - {fileID: 2100000, guid: d782eb9dd0e7bf149bcc879a4da28434, type: 2}
+  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
