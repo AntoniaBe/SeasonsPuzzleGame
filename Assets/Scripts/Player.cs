@@ -6,12 +6,12 @@ public class Player : Singleton<Player>
 {
     public bool hasSpringStone;
     public bool hasSummerStone;
-    public bool hasFallStone;
+    public bool hasAutumnStone;
     public bool hasWinterStone;
 
     private void Awake()
     {
-        hasSpringStone = hasSummerStone = hasFallStone = hasWinterStone = false;
+        hasSpringStone = hasSummerStone = hasAutumnStone = hasWinterStone = false;
     }
 
     public bool CanChangeToSeason(Season season)
@@ -21,7 +21,7 @@ public class Player : Singleton<Player>
         switch (season)
         {
             case Season.AUTUMN:
-                canChangeToSeason = hasFallStone;
+                canChangeToSeason = hasAutumnStone;
                 break;
             case Season.SPRING:
                 canChangeToSeason = hasSpringStone;
@@ -38,5 +38,26 @@ public class Player : Singleton<Player>
         }
 
         return canChangeToSeason;
+    }
+
+    public void SetSeasonPower(Season season, bool isActivated)
+    {
+        switch (season)
+        {
+            case Season.AUTUMN:
+                hasAutumnStone = isActivated;
+                break;
+            case Season.SPRING:
+                hasSpringStone = isActivated;
+                break;
+            case Season.SUMMER:
+                hasSummerStone = isActivated;
+                break;
+            case Season.WINTER:
+                hasWinterStone = isActivated;
+                break;
+            default:
+                break;
+        }
     }
 }

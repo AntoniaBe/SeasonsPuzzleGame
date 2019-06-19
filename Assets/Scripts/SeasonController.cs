@@ -7,20 +7,21 @@ public class SeasonController : MonoBehaviour
 {
     [SerializeField]
     private float touchSwipeThreshold = 1.0f;
+    public Player player;
 
     private VRTK_ControllerEvents controllerEvents;
     private float startTouchX;
     private float lastTouchX;
-    public Player player;
+
     private Dictionary<Season, GameObject> seasonStones;
     private int degreesLeftOfSeasonStoneRotation;
-    private int degreesPerFixedFrame;
+    private int degreesPerFixedFrameOfSeasonStoneRotation;
 
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
         seasonStones = new Dictionary<Season, GameObject>();
-        degreesPerFixedFrame = 2;
+        degreesPerFixedFrameOfSeasonStoneRotation = 2;
     }
 
     private void Start()
@@ -43,10 +44,10 @@ public class SeasonController : MonoBehaviour
             foreach (KeyValuePair<Season, GameObject> entry in seasonStones)
             {
                 // rotate around the local z axis to world vector one degree
-                entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), degreesPerFixedFrame);
+                entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), degreesPerFixedFrameOfSeasonStoneRotation);
             }
 
-            degreesLeftOfSeasonStoneRotation -= Mathf.Abs(degreesPerFixedFrame);
+            degreesLeftOfSeasonStoneRotation -= Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
         }
     }
 
@@ -86,23 +87,37 @@ public class SeasonController : MonoBehaviour
 
     public void AttachSeasonStone(GrabbableSeasonStone seasonStone)
     {
-        Season season = seasonStone.season;
-        seasonStones.Add(season, seasonStone.gameObject);
-        PutSeasonStoneGameObjectOnController(seasonStone.gameObject);
+        seasonStones.Add(seasonStone.season, seasonStone.gameObject);
+        player.SetSeasonPower(seasonStone.season, true);
+        PutSeasonStoneOnController(seasonStone);
     }
 
-    private void PutSeasonStoneGameObjectOnController(GameObject seasonStoneGameObject)
+    private void PutSeasonStoneOnController(GrabbableSeasonStone seasonStone)
     {
+        GameObject seasonStoneGameObject = seasonStone.gameObject;
         seasonStoneGameObject.transform.parent = this.gameObject.transform;
         seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.1f, 0);
+
+        int rotation = 0;
+
+        if (SeasonsManager.Instance.NextSeason == seasonStone.season)
+            rotation = 90;
+        else if (SeasonsManager.Instance.PreviousSeason == seasonStone.season)
+            rotation = -90;
+        else if (SeasonsManager.Instance.CurrentSeason == seasonStone.season)
+            rotation = 0;
+        else
+            rotation = 180;
+
+        seasonStoneGameObject.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), rotation);
     }
 
     private void RotateSeasonStonesInDegrees(int degrees)
     {
         if (degrees < 0)
-            degreesPerFixedFrame = -Mathf.Abs(degreesPerFixedFrame);
+            degreesPerFixedFrameOfSeasonStoneRotation = -Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
         else
-            degreesPerFixedFrame = Mathf.Abs(degreesPerFixedFrame);
+            degreesPerFixedFrameOfSeasonStoneRotation = Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
 
         degreesLeftOfSeasonStoneRotation = Mathf.Abs(degrees);
     }
