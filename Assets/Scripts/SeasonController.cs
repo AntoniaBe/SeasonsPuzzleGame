@@ -13,7 +13,7 @@ public class SeasonController : MonoBehaviour
     private float lastTouchX;
     public Player player;
     private Dictionary<Season, GameObject> seasonStones;
-    private int degreesLeftOfStoneRotation;
+    private int degreesLeftOfSeasonStoneRotation;
     private int degreesPerFixedFrame;
 
     private void Awake()
@@ -38,7 +38,7 @@ public class SeasonController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (degreesLeftOfStoneRotation > 0)
+        if (degreesLeftOfSeasonStoneRotation > 0)
         {
             foreach (KeyValuePair<Season, GameObject> entry in seasonStones)
             {
@@ -46,7 +46,7 @@ public class SeasonController : MonoBehaviour
                 entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), degreesPerFixedFrame);
             }
 
-            degreesLeftOfStoneRotation -= Mathf.Abs(degreesPerFixedFrame);
+            degreesLeftOfSeasonStoneRotation -= Mathf.Abs(degreesPerFixedFrame);
         }
     }
 
@@ -66,8 +66,7 @@ public class SeasonController : MonoBehaviour
 
             if (player.CanChangeToSeason(previousSeason))
             {
-                degreesPerFixedFrame = Mathf.Abs(degreesPerFixedFrame);
-                degreesLeftOfStoneRotation = 90;
+                RotateSeasonStonesInDegrees(90);
                 SeasonsManager.Instance.ChangeSeasonBackwards();
             }
         }
@@ -77,8 +76,7 @@ public class SeasonController : MonoBehaviour
 
             if (player.CanChangeToSeason(nextSeason))
             {
-                degreesPerFixedFrame = -Mathf.Abs(degreesPerFixedFrame);
-                degreesLeftOfStoneRotation = 90;
+                RotateSeasonStonesInDegrees(-90);
                 SeasonsManager.Instance.ChangeSeasonForwards();
             }
         }
@@ -97,5 +95,15 @@ public class SeasonController : MonoBehaviour
     {
         seasonStoneGameObject.transform.parent = this.gameObject.transform;
         seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.1f, 0);
+    }
+
+    private void RotateSeasonStonesInDegrees(int degrees)
+    {
+        if (degrees < 0)
+            degreesPerFixedFrame = -Mathf.Abs(degreesPerFixedFrame);
+        else
+            degreesPerFixedFrame = Mathf.Abs(degreesPerFixedFrame);
+
+        degreesLeftOfSeasonStoneRotation = Mathf.Abs(degrees);
     }
 }
