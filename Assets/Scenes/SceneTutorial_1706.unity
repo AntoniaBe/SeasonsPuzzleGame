@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftVrController: {fileID: 1922823723}
   rightVrController: {fileID: 1922823721}
+  season: 2
 --- !u!1 &237549503 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5931988784096357935, guid: 965c9f30ac8c6c444a6c40c397c8f202,
@@ -221,6 +222,54 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftVrController: {fileID: 1922823723}
   rightVrController: {fileID: 1922823721}
+  season: 0
+--- !u!1 &266398138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266398140}
+  - component: {fileID: 266398139}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &266398139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266398138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20e2467964b06d4dbac0b67bdbf9da7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasSpringStone: 0
+  hasSummerStone: 0
+  hasFallStone: 0
+  hasWinterStone: 0
+--- !u!4 &266398140
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266398138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &308308167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -316,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 2991896623667860768, guid: ccb26fc6d674980458f094e24e33914b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4628408
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 2991896623667860768, guid: ccb26fc6d674980458f094e24e33914b,
         type: 3}
@@ -485,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftVrController: {fileID: 1922823723}
   rightVrController: {fileID: 1922823721}
+  season: 3
 --- !u!1 &609713896 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 97229349769956200, guid: b9c1acfa55485264ab4564d0939ccffa,
@@ -505,6 +555,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftVrController: {fileID: 1922823723}
   rightVrController: {fileID: 1922823721}
+  season: 1
 --- !u!1 &617345810
 GameObject:
   m_ObjectHideFlags: 0
@@ -529,7 +580,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617345810}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.7609999, y: 0.48793432, z: -0.55}
+  m_LocalPosition: {x: 1.7609999, y: 0.5850935, z: -0.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 660351234}
@@ -1148,7 +1199,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1776656119}
     m_Modifications:
     - target: {fileID: 1540172408604518, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_Name
@@ -1160,23 +1211,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.648
+      value: -1.3823702
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.215
+      value: -0.24784079
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.881
+      value: 0.48739085
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1188,7 +1239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1204,11 +1255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.50000024
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.50000024
       objectReference: {fileID: 0}
     - target: {fileID: 4729443064179840, guid: 659d26211f6da2749b99f4c64cce95c9, type: 3}
       propertyPath: m_LocalScale.z
@@ -1829,6 +1880,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2891347212523942911, guid: 5117d8505808d854e8636bbdfba872de,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 266398139}
+    - target: {fileID: 2891347212523942911, guid: 5117d8505808d854e8636bbdfba872de,
+        type: 3}
+      propertyPath: testSeasonStone
+      value: 
+      objectReference: {fileID: 173952027}
+    - target: {fileID: 2891347212735155855, guid: 5117d8505808d854e8636bbdfba872de,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 266398139}
+    - target: {fileID: 2891347212735155855, guid: 5117d8505808d854e8636bbdfba872de,
+        type: 3}
+      propertyPath: testSeasonStone
+      value: 
+      objectReference: {fileID: 601798997}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5117d8505808d854e8636bbdfba872de, type: 3}
 --- !u!1 &1922823721 stripped
