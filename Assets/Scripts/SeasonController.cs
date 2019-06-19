@@ -11,15 +11,12 @@ public class SeasonController : MonoBehaviour
     private VRTK_ControllerEvents controllerEvents;
     private float startTouchX;
     private float lastTouchX;
-
-    public GameObject springStone;
-    public GameObject summerStone;
-    public GameObject winterStone;
-    public GameObject autumnStone;
+    public Player player;
 
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
+
     }
 
     private void Start()
