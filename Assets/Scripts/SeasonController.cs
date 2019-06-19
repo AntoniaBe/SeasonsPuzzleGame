@@ -16,7 +16,6 @@ public class SeasonController : MonoBehaviour
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
-
     }
 
     private void Start()
@@ -43,9 +42,23 @@ public class SeasonController : MonoBehaviour
             return;
 
         if (startTouchX > lastTouchX)
-            SeasonsManager.Instance.ChangeSeasonBackwards();
-        else
-            SeasonsManager.Instance.ChangeSeasonForwards();
+        {
+            Season previousSeason = SeasonsManager.Instance.PreviousSeason;
+
+            if (player.CanChangeToSeason(previousSeason))
+            {
+                SeasonsManager.Instance.ChangeSeasonBackwards();
+            }
+        }
+        else if (startTouchX < lastTouchX)
+        {
+            Season nextSeason = SeasonsManager.Instance.NextSeason;
+
+            if (player.CanChangeToSeason(nextSeason))
+            {
+                SeasonsManager.Instance.ChangeSeasonForwards();
+            }
+        }
 
         Debug.Log(SeasonsManager.Instance.CurrentSeason);
     }

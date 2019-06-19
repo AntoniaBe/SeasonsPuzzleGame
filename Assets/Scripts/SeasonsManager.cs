@@ -40,7 +40,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
     {
         get
         {
-            int seasonIndex = currentSeasonIndex++;
+            int seasonIndex = currentSeasonIndex + 1;
 
             if (seasonIndex >= seasons.Length)
             {
@@ -55,7 +55,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
     {
         get
         {
-            int seasonIndex = currentSeasonIndex--;
+            int seasonIndex = currentSeasonIndex - 1;
 
             if (seasonIndex < 0)
             {
