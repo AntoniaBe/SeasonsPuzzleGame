@@ -41,6 +41,8 @@ public class SeasonsManager : Singleton<SeasonsManager>
             }
 
             currentSeasonIndex = index;
+
+            TriggerUpdateSeasonEvent();
         }
     }
 
