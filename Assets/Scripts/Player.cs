@@ -20,7 +20,7 @@ public class Player : Singleton<Player>
 
         switch (season)
         {
-            case Season.FALL:
+            case Season.AUTUMN:
                 canChangeToSeason = hasFallStone;
                 break;
             case Season.SPRING:

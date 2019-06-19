@@ -17,6 +17,14 @@ public class SeasonsManager : Singleton<SeasonsManager>
     private int currentSeasonIndex;
     private Season lastActivatedSeason;
 
+    public Season[] Seasons
+    {
+        get
+        {
+            return seasons;
+        }
+    }
+
     public Season CurrentSeason
     {
         get
@@ -69,7 +77,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
     private void Awake()
     {
         UpdateSeasonEvent = new SeasonEvent();
-        seasons = new Season[4] {Season.SPRING, Season.SUMMER, Season.FALL, Season.WINTER};
+        seasons = new Season[4] {Season.SPRING, Season.SUMMER, Season.AUTUMN, Season.WINTER};
         currentSeasonIndex = 0;
     }
 

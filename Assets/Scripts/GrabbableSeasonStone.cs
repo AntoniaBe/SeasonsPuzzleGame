@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VRTK;
@@ -9,6 +10,8 @@ public class GrabbableSeasonStone : MonoBehaviour
     private GameObject leftVrController;
     [SerializeField]
     private GameObject rightVrController;
+
+    public Season season;
     private GameObject interactedController;
     private bool isTaken;
 
@@ -32,12 +35,13 @@ public class GrabbableSeasonStone : MonoBehaviour
 
         if (interactingObject == leftVrController || interactingObject == rightVrController)
         {
-            interactedController = interactingObject;
+            SeasonController seasonController = interactingObject.GetComponent<SeasonController>();
+
+            if (seasonController == null)
+                throw new Exception("The interacting controller has no SeasonController script component");
 
             isTaken = true;
-            transform.parent = interactedController.transform;
-            this.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            transform.localPosition += new Vector3(0, 0.1f, 0);
+            seasonController.AttachSeasonStone(this);
         }
         else
         {

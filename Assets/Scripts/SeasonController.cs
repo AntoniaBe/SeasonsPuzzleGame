@@ -12,10 +12,12 @@ public class SeasonController : MonoBehaviour
     private float startTouchX;
     private float lastTouchX;
     public Player player;
+    private Dictionary<Season, GameObject> seasonStones;
 
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
+        seasonStones = new Dictionary<Season, GameObject>();
     }
 
     private void Start()
@@ -61,5 +63,18 @@ public class SeasonController : MonoBehaviour
         }
 
         Debug.Log(SeasonsManager.Instance.CurrentSeason);
+    }
+
+    public void AttachSeasonStone(GrabbableSeasonStone seasonStone)
+    {
+        Season season = seasonStone.season;
+        seasonStones.Add(season, seasonStone.gameObject);
+        PutSeasonStoneOnController(seasonStone.gameObject);
+    }
+
+    private void PutSeasonStoneOnController(GameObject seasonStoneGameObject)
+    {
+        seasonStoneGameObject.transform.parent = this.gameObject.transform;
+        seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.1f, 0);
     }
 }
