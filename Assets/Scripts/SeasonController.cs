@@ -119,6 +119,6 @@ public class SeasonController : MonoBehaviour
         else
             degreesPerFixedFrameOfSeasonStoneRotation = Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
 
-        degreesLeftOfSeasonStoneRotation = Mathf.Abs(degrees);
+        degreesLeftOfSeasonStoneRotation += Mathf.Abs(degrees);
     }
 }

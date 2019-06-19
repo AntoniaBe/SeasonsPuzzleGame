@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasSpringStone: 0
   hasSummerStone: 0
-  hasFallStone: 0
+  hasAutumnStone: 0
   hasWinterStone: 0
 --- !u!4 &266398140
 Transform:
@@ -285,7 +285,7 @@ PrefabInstance:
     - target: {fileID: 5931988784096357934, guid: 965c9f30ac8c6c444a6c40c397c8f202,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.84
+      value: -3.647
       objectReference: {fileID: 0}
     - target: {fileID: 5931988784096357934, guid: 965c9f30ac8c6c444a6c40c397c8f202,
         type: 3}
@@ -295,7 +295,7 @@ PrefabInstance:
     - target: {fileID: 5931988784096357934, guid: 965c9f30ac8c6c444a6c40c397c8f202,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.96
+      value: 1.747
       objectReference: {fileID: 0}
     - target: {fileID: 5931988784096357934, guid: 965c9f30ac8c6c444a6c40c397c8f202,
         type: 3}
