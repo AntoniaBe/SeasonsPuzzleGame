@@ -47,6 +47,6 @@ public class SeasonController : MonoBehaviour
         else
             SeasonsManager.Instance.ChangeSeasonForwards();
 
-        Debug.Log(SeasonsManager.Instance.GetCurrentSeason());
+        Debug.Log(SeasonsManager.Instance.CurrentSeason);
     }
 }
