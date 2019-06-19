@@ -13,11 +13,14 @@ public class SeasonController : MonoBehaviour
     private float lastTouchX;
     public Player player;
     private Dictionary<Season, GameObject> seasonStones;
+    public GameObject testSeasonStone;
+    public int rotation = 0;
 
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
         seasonStones = new Dictionary<Season, GameObject>();
+        AttachSeasonStone(testSeasonStone.GetComponent<GrabbableSeasonStone>());
     }
 
     private void Start()
@@ -31,6 +34,17 @@ public class SeasonController : MonoBehaviour
     {
         if (GetComponent<VRTK_ControllerEvents>().touchpadTouched)
             lastTouchX = controllerEvents.GetAxis(VRTK_ControllerEvents.Vector2AxisAlias.Touchpad).x;
+
+        
+        if (rotation < 90)
+        {
+            foreach (KeyValuePair<Season, GameObject> entry in seasonStones)
+            {
+                // rotate around the local z axis to world vector one degree
+                entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), 1);
+            }
+            rotation++;
+        }
     }
 
     private void TouchStart(object sender, ControllerInteractionEventArgs e)
@@ -69,10 +83,10 @@ public class SeasonController : MonoBehaviour
     {
         Season season = seasonStone.season;
         seasonStones.Add(season, seasonStone.gameObject);
-        PutSeasonStoneOnController(seasonStone.gameObject);
+        PutSeasonStoneGameObjectOnController(seasonStone.gameObject);
     }
 
-    private void PutSeasonStoneOnController(GameObject seasonStoneGameObject)
+    private void PutSeasonStoneGameObjectOnController(GameObject seasonStoneGameObject)
     {
         seasonStoneGameObject.transform.parent = this.gameObject.transform;
         seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.1f, 0);
