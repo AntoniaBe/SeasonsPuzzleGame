@@ -13,14 +13,14 @@ public class SeasonController : MonoBehaviour
     private float lastTouchX;
     public Player player;
     private Dictionary<Season, GameObject> seasonStones;
-    public GameObject testSeasonStone;
-    public int rotation = 0;
+    private int degreesLeftOfStoneRotation;
+    private int degreesPerFixedFrame;
 
     private void Awake()
     {
         controllerEvents = GetComponent<VRTK_ControllerEvents>();
         seasonStones = new Dictionary<Season, GameObject>();
-        AttachSeasonStone(testSeasonStone.GetComponent<GrabbableSeasonStone>());
+        degreesPerFixedFrame = 2;
     }
 
     private void Start()
@@ -34,16 +34,19 @@ public class SeasonController : MonoBehaviour
     {
         if (GetComponent<VRTK_ControllerEvents>().touchpadTouched)
             lastTouchX = controllerEvents.GetAxis(VRTK_ControllerEvents.Vector2AxisAlias.Touchpad).x;
+    }
 
-        
-        if (rotation < 90)
+    private void FixedUpdate()
+    {
+        if (degreesLeftOfStoneRotation > 0)
         {
             foreach (KeyValuePair<Season, GameObject> entry in seasonStones)
             {
                 // rotate around the local z axis to world vector one degree
-                entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), 1);
+                entry.Value.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), degreesPerFixedFrame);
             }
-            rotation++;
+
+            degreesLeftOfStoneRotation -= Mathf.Abs(degreesPerFixedFrame);
         }
     }
 
@@ -63,6 +66,8 @@ public class SeasonController : MonoBehaviour
 
             if (player.CanChangeToSeason(previousSeason))
             {
+                degreesPerFixedFrame = Mathf.Abs(degreesPerFixedFrame);
+                degreesLeftOfStoneRotation = 90;
                 SeasonsManager.Instance.ChangeSeasonBackwards();
             }
         }
@@ -72,6 +77,8 @@ public class SeasonController : MonoBehaviour
 
             if (player.CanChangeToSeason(nextSeason))
             {
+                degreesPerFixedFrame = -Mathf.Abs(degreesPerFixedFrame);
+                degreesLeftOfStoneRotation = 90;
                 SeasonsManager.Instance.ChangeSeasonForwards();
             }
         }
