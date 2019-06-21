@@ -6,7 +6,7 @@ public class SeasonObjectBehaviour : MonoBehaviour
 {
     private SeasonsManager seasonsManager;
 
-    private void Start()
+    public virtual void Start()
     {
         seasonsManager = SeasonsManager.Instance;
         seasonsManager.UpdateSeasonEvent.AddListener(OnUpdateRepresentation);
