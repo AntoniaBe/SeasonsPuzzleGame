@@ -5,11 +5,16 @@ using UnityEngine;
 public abstract class LerpProperty : MonoBehaviour
 {
     [SerializeField]
-    private float duration;
+    private float duration = 4.0f;
 
     protected float lerpTime;
     protected float progress;
     protected bool dir;
+
+    private void Start()
+    {
+        lerpTime = duration;
+    }
 
     public void Lerp(bool inOut)
     {

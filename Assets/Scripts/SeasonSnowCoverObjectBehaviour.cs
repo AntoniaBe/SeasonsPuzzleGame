@@ -4,28 +4,34 @@ using UnityEngine;
 
 public class SeasonSnowCoverObjectBehaviour : SeasonObjectBehaviour
 {
-    private LerpScaleBehaviour lerpScaleBehaviour;
+    private LerpProperty lerpScaleBehaviour;
+    private bool direction = true;
+    private Season lastSeason;
 
     public override void Start()
     {
         base.Start();
-        lerpScaleBehaviour = GetComponentInChildren<LerpScaleBehaviour>();
+        lerpScaleBehaviour = GetComponentInChildren<LerpProperty>();
     }
 
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);
         Debug.Log(currentSeason);
-        if(currentSeason == Season.WINTER)
+        if (currentSeason == Season.WINTER)
         {
-            lerpScaleBehaviour.Lerp();
+            Lerp();
         }
-        else
+        else if(currentSeason != Season.WINTER && lastSeason == Season.WINTER)
         {
-            if(SeasonsManager.Instance.PreviousSeason == Season.WINTER || SeasonsManager.Instance.NextSeason == Season.WINTER)
-            {
-                lerpScaleBehaviour.Lerp();
-            }
+            Lerp();
         }
+        lastSeason = currentSeason;
+    }
+
+    private void Lerp()
+    {
+        direction = !direction;
+        lerpScaleBehaviour.Lerp(direction);
     }
 }
