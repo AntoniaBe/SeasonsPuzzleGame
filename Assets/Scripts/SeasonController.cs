@@ -96,7 +96,9 @@ public class SeasonController : MonoBehaviour
     {
         GameObject seasonStoneGameObject = seasonStone.gameObject;
         seasonStoneGameObject.transform.parent = this.gameObject.transform;
-        seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.1f, 0);
+        seasonStoneGameObject.transform.localPosition = new Vector3(0, 0.05f, -0.05f);
+
+        ChangeSeasonStoneScale(seasonStoneGameObject);
 
         int rotation = 0;
 
@@ -109,6 +111,7 @@ public class SeasonController : MonoBehaviour
         else
             rotation = 180;
 
+        Vector3 rotationCenterPosition = this.transform.position + this.transform.TransformDirection(new Vector3(0, 0.04f, -0.05f));
         seasonStoneGameObject.transform.RotateAround(this.transform.position, this.transform.TransformDirection(Vector3.forward), rotation);
     }
 
@@ -120,5 +123,29 @@ public class SeasonController : MonoBehaviour
             degreesPerFixedFrameOfSeasonStoneRotation = Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
 
         degreesLeftOfSeasonStoneRotation += Mathf.Abs(degrees);
+    }
+
+    private void ChangeSeasonStoneScale(GameObject seasonStoneGameObject)
+    {
+        seasonStoneGameObject.transform.localScale = seasonStoneGameObject.transform.localScale * 0.5f;
+        GameObject glow = seasonStoneGameObject.transform.GetChild(0).gameObject;
+
+        glow.transform.localScale = seasonStoneGameObject.transform.GetChild(0).transform.localScale * 0.5f;
+
+        GameObject central = glow.transform.FindChild("central").gameObject;
+        GameObject dust = glow.transform.FindChild("dust").gameObject;
+        GameObject energy = glow.transform.FindChild("energy").gameObject;
+        GameObject energy_central = glow.transform.FindChild("energy_central").gameObject;
+        GameObject smoke = glow.transform.FindChild("smoke").gameObject;
+
+        central.GetComponent<ParticleSystem>().startSize = 2;
+        dust.GetComponent<ParticleSystem>().startSize = 0.05f;
+        energy.GetComponent<ParticleSystem>().startSize = 3;
+        energy_central.GetComponent<ParticleSystem>().startSize = 2;
+        smoke.GetComponent<ParticleSystem>().startSize = 0.02f;
+
+        central.GetComponent<ParticleSystem>().startLifetime = 2;
+        dust.GetComponent<ParticleSystem>().startLifetime = 0.3f;
+        smoke.GetComponent<ParticleSystem>().startLifetime = 0.7f;
     }
 }
