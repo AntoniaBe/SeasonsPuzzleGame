@@ -45,7 +45,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b37d3b040f346da499e5bdc3f6aab94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minScaleModifier: 0.75
 --- !u!1 &1082924750688107750
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,4 +212,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f9f71454389e4b42abd3034a2c56b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpDuration: 1
+  duration: 2
+  minFactor: 0.75
