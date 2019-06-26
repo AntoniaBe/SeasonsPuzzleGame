@@ -132,11 +132,11 @@ public class SeasonController : MonoBehaviour
 
         glow.transform.localScale = seasonStoneGameObject.transform.GetChild(0).transform.localScale * 0.5f;
 
-        GameObject central = glow.transform.FindChild("central").gameObject;
-        GameObject dust = glow.transform.FindChild("dust").gameObject;
-        GameObject energy = glow.transform.FindChild("energy").gameObject;
-        GameObject energy_central = glow.transform.FindChild("energy_central").gameObject;
-        GameObject smoke = glow.transform.FindChild("smoke").gameObject;
+        GameObject central = glow.transform.Find("central").gameObject;
+        GameObject dust = glow.transform.Find("dust").gameObject;
+        GameObject energy = glow.transform.Find("energy").gameObject;
+        GameObject energy_central = glow.transform.Find("energy_central").gameObject;
+        GameObject smoke = glow.transform.Find("smoke").gameObject;
 
         central.GetComponent<ParticleSystem>().startSize = 2;
         dust.GetComponent<ParticleSystem>().startSize = 0.05f;
