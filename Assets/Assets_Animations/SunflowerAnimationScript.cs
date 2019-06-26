@@ -6,9 +6,8 @@ public class SunflowerAnimationScript : MonoBehaviour
 {
     public GameObject animationController;
     public GameObject sunflower;
-    float totalZ = 4f; // say it takes 3 seconds to complete the animation
+    float totalZ = 4f; // say it takes 4 seconds to complete the animation
     float currentZ = 0;   // the amount of time that has elapsed so far
-    float currentZ2 = 1;
     public GameObject[] sunflowerPartsGreenToColor;
     public bool sunflowerIdleToGrow = false;
     public bool sunflowerGrowToIdle = false;
@@ -17,7 +16,6 @@ public class SunflowerAnimationScript : MonoBehaviour
     public bool sunflowerBloomToWilt = false;
     public bool sunflowerWiltToBloom = false;
     public bool sunflowerIdle = false;
-    public float lol;
 
     private Animator sunflowerAnim;
 
@@ -49,8 +47,7 @@ public class SunflowerAnimationScript : MonoBehaviour
         if (sunflowerGrowToBloom)
         {
            //Debug.Log("sunflowerGrowToBloom " + currentZ);
-            
-            //currentZ += Time.deltaTime; // add time each frame
+           
 
             if (currentZ < 0)
             {
