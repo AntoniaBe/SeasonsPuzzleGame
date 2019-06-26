@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SunflowerAnimationScript : MonoBehaviour
 {
-    public GameObject animationController;
     public GameObject sunflower;
     float totalZ = 4f; // say it takes 4 seconds to complete the animation
     float currentZ = 0;   // the amount of time that has elapsed so far
@@ -17,7 +16,7 @@ public class SunflowerAnimationScript : MonoBehaviour
     public bool sunflowerWiltToBloom = false;
     public bool sunflowerIdle = false;
 
-    private Animator sunflowerAnim;
+    public Animator sunflowerAnim;
 
     void Start()
     {
