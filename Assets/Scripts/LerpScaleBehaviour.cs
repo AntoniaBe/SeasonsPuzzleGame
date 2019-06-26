@@ -18,7 +18,6 @@ public class LerpScaleBehaviour : LerpProperty
 
     protected override void OnLerp(float t)
     {
-        Debug.Log(t);
         transform.localScale = Vector3.Lerp(min, max, t);
     }
 
