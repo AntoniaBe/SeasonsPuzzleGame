@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class SeasonObjectBehaviour : MonoBehaviour
 {
-    private SeasonsManager seasonsManager;
-
-    void Start()
-    {
-        seasonsManager = SeasonsManager.Instance;
-        seasonsManager.UpdateSeasonEvent.AddListener(UpdateRepresentation);
+    public virtual void Awake(){
+        SeasonsManager.Instance.UpdateSeasonEvent.AddListener(OnUpdateRepresentation);
     }
 
-    private void UpdateRepresentation(Season currentSeason)
+    private void OnUpdateRepresentation(Season currentSeason)
     {
-        Debug.Log(currentSeason);
+        UpdateRepresentation(currentSeason);
     }
+
+    public virtual void UpdateRepresentation(Season currentSeason)
+    {
+    }
+    
 }
