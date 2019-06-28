@@ -18,6 +18,8 @@ public class GrabbableSeasonStone : MonoBehaviour
 
     public bool IsTaken {get; set;}
 
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +36,7 @@ public class GrabbableSeasonStone : MonoBehaviour
 
     private void SeasonStoneTouched(object sender, InteractableObjectEventArgs e)
     {
+        Debug.Log(rb);
         GameObject interactingObject = e.interactingObject;
 
         if (IsGrabbable && (interactingObject == leftVrController || interactingObject == rightVrController))
@@ -43,14 +46,28 @@ public class GrabbableSeasonStone : MonoBehaviour
             if (seasonController == null)
                 throw new Exception("The interacting controller has no SeasonController script component");
 
+            Debug.Log(rb);
+            if(rb != null){
+                rb.detectCollisions = false;
+                Destroy(rb);
+                Debug.Log(rb + "destroyed");
+            }
             seasonController.AttachSeasonStone(this);
             IsTaken = true;
+            
             TutorialStateManager.Instance.OnStoneTaken.Invoke(this);
-
         }
         else
         {
             Debug.Log("No controller found.");
+        }
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("Stick") && GetComponent<Rigidbody>() == null){
+            rb = gameObject.AddComponent<Rigidbody>();
+            IsGrabbable = true;
         }
     }
 }
