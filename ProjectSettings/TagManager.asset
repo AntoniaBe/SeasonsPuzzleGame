@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GreenToColor
   - Stick
+  - Bird
   layers:
   - Default
   - TransparentFX

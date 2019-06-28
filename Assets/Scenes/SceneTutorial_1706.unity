@@ -453,6 +453,36 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4ccd9521bc19372458f9dda2e76fbce6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb26fc6d674980458f094e24e33914b, type: 3}
+--- !u!1 &373110839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 373110840}
+  m_Layer: 0
+  m_Name: BirdsGatheringPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &373110840
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373110839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 10, z: -5.81}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &578429230
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1180,7 +1210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8baf3e6cd64e2104caa7e85368011479, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seasonsManager: {fileID: 0}
   springStone: {fileID: 601799000}
   summerStone: {fileID: 237549506}
   autumnStone: {fileID: 609713899}
@@ -1782,6 +1811,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 318068545}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1891020588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1891020589}
+  m_Layer: 0
+  m_Name: South
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1891020589
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891020588}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 141, y: 15.478435, z: -185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1922823720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1977,10 +2036,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
+    - target: {fileID: 2575757453497816700, guid: febbfa947df21e64e8678a8980a4c9a5,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bird
+      objectReference: {fileID: 0}
     - target: {fileID: 2575757453497649756, guid: febbfa947df21e64e8678a8980a4c9a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.744
+      value: -14.03
       objectReference: {fileID: 0}
     - target: {fileID: 2575757453497649756, guid: febbfa947df21e64e8678a8980a4c9a5,
         type: 3}
@@ -1990,7 +2054,7 @@ PrefabInstance:
     - target: {fileID: 2575757453497649756, guid: febbfa947df21e64e8678a8980a4c9a5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.962
+      value: -12.31
       objectReference: {fileID: 0}
     - target: {fileID: 2575757453497649756, guid: febbfa947df21e64e8678a8980a4c9a5,
         type: 3}
@@ -2034,9 +2098,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3809879804440102942, guid: febbfa947df21e64e8678a8980a4c9a5,
         type: 3}
+      propertyPath: flyingSeasons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809879804440102942, guid: febbfa947df21e64e8678a8980a4c9a5,
+        type: 3}
       propertyPath: sdkSetup
       value: 
       objectReference: {fileID: 1210745854}
+    - target: {fileID: 3809879804440102942, guid: febbfa947df21e64e8678a8980a4c9a5,
+        type: 3}
+      propertyPath: flyingSeasons.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3809879804440102942, guid: febbfa947df21e64e8678a8980a4c9a5,
+        type: 3}
+      propertyPath: south
+      value: 
+      objectReference: {fileID: 1891020589}
+    - target: {fileID: 3809879804440102942, guid: febbfa947df21e64e8678a8980a4c9a5,
+        type: 3}
+      propertyPath: gatheringPosition
+      value: 
+      objectReference: {fileID: 373110840}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: febbfa947df21e64e8678a8980a4c9a5, type: 3}
 --- !u!1001 &7720834471819449814
