@@ -63,9 +63,9 @@ public class SeasonController : MonoBehaviour
 
         if (startTouchX > lastTouchX)
         {
-            Season previousSeason = SeasonsManager.Instance.PreviousSeason;
+            Season nextSeason = SeasonsManager.Instance.NextSeason;
 
-            if (player.CanChangeToSeason(previousSeason))
+            if (player.CanChangeToSeason(nextSeason))
             {
                 RotateSeasonStonesInDegrees(90);
                 SeasonsManager.Instance.ChangeSeasonForwards();
@@ -73,9 +73,9 @@ public class SeasonController : MonoBehaviour
         }
         else if (startTouchX < lastTouchX)
         {
-            Season nextSeason = SeasonsManager.Instance.NextSeason;
+            Season previousSeason = SeasonsManager.Instance.PreviousSeason;
 
-            if (player.CanChangeToSeason(nextSeason))
+            if (player.CanChangeToSeason(previousSeason))
             {
                 RotateSeasonStonesInDegrees(-90);
                 SeasonsManager.Instance.ChangeSeasonBackwards();
