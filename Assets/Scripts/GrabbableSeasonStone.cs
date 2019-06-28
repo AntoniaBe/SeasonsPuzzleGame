@@ -65,8 +65,9 @@ public class GrabbableSeasonStone : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if(other.gameObject.CompareTag("Stick") && GetComponent<Rigidbody>() == null){
+        if(other.gameObject.CompareTag("Stick") && GetComponent<Rigidbody>() == null && season == Season.SPRING){
             rb = gameObject.AddComponent<Rigidbody>();
+            //TODO weight
             IsGrabbable = true;
         }
     }

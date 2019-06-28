@@ -443,6 +443,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.386
       objectReference: {fileID: 0}
+    - target: {fileID: 1393724271, guid: ccb26fc6d674980458f094e24e33914b, type: 3}
+      propertyPath: m_Name
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 1393724274, guid: ccb26fc6d674980458f094e24e33914b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4ccd9521bc19372458f9dda2e76fbce6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccb26fc6d674980458f094e24e33914b, type: 3}
 --- !u!1001 &578429230
@@ -1189,6 +1197,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1373998819}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1424390621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2991896623667860769, guid: ccb26fc6d674980458f094e24e33914b,
+    type: 3}
+  m_PrefabInstance: {fileID: 318068545}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1424390622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1424390621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fa9c7205fa05034c98c9a0cca2ba334, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterMaterial: {fileID: 2100000, guid: 4ccd9521bc19372458f9dda2e76fbce6, type: 2}
+  normalColor: {r: 0.30196077, g: 0.42745098, b: 0.41960785, a: 0}
+  iceColor: {r: 0.83183515, g: 0.8773585, b: 0.87451327, a: 0}
+  scaleWinter: 1
+  scaleNormal: 0.175
+  waterSpeed: 0.042
 --- !u!4 &1477109171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000011368645488, guid: 41c0760bd81dd084283814f0c432b466,
