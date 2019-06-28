@@ -500,6 +500,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2575757453497649756}
   - component: {fileID: 2575757453507175870}
+  - component: {fileID: 3809879804440102942}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Untagged
@@ -516,7 +517,7 @@ Transform:
   m_GameObject: {fileID: 2575757453497816700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.35969618, y: 0.36593693, z: -2.5611997}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 2575757453497649758}
   - {fileID: 2575757453497649766}
@@ -533,7 +534,7 @@ Animator:
   m_GameObject: {fileID: 2575757453497816700}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: a7cea32631cfa29469185f04abf90e62, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c3092ee55cdeac048ad96477d853f8aa, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -542,6 +543,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3809879804440102942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575757453497816700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ddda5298f735c4188310ebcea72610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  steeringSpeed: 1
+  speed: 1
+  minDist: 0.25
+  sdkSetup: {fileID: 0}
 --- !u!1 &2575757453497816702
 GameObject:
   m_ObjectHideFlags: 0
