@@ -46,13 +46,24 @@ public class TutorialStateManager : Singleton<TutorialStateManager>
             //TODO color center
             springStone.gameObject.SetActive(true);
             summerStone.gameObject.SetActive(true);
-            
         }
+
+        if(stone.season == Season.SUMMER)
+        {
+            autumnStone.gameObject.SetActive(true);
+        }
+
+        if(stone.season == Season.AUTUMN)
+            //TODO color first sector
+            Debug.Log("TODO");
     }
 
     private void OnSeasonUpdate(Season season)
     {
         if(!summerStone.IsTaken)
             summerStone.IsGrabbable = (season != Season.WINTER);
+
+        if(!autumnStone.IsTaken)
+            autumnStone.IsGrabbable = (season == Season.SUMMER);
     }
 }
