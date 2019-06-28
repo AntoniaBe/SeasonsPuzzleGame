@@ -45,6 +45,8 @@ public class GrabbableSeasonStone : MonoBehaviour
 
             seasonController.AttachSeasonStone(this);
             IsTaken = true;
+            TutorialStateManager.Instance.OnStoneTaken.Invoke(this);
+
         }
         else
         {

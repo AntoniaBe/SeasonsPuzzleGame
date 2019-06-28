@@ -8,9 +8,9 @@ public class SeasonSnowCoverObjectBehaviour : SeasonObjectBehaviour
     private bool direction = true;
     private Season lastSeason;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
         lerpScaleBehaviour = GetComponentInChildren<LerpProperty>();
     }
 
