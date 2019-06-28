@@ -68,7 +68,7 @@ public class SeasonController : MonoBehaviour
             if (player.CanChangeToSeason(previousSeason))
             {
                 RotateSeasonStonesInDegrees(90);
-                SeasonsManager.Instance.ChangeSeasonBackwards();
+                SeasonsManager.Instance.ChangeSeasonForwards();
             }
         }
         else if (startTouchX < lastTouchX)
@@ -78,7 +78,7 @@ public class SeasonController : MonoBehaviour
             if (player.CanChangeToSeason(nextSeason))
             {
                 RotateSeasonStonesInDegrees(-90);
-                SeasonsManager.Instance.ChangeSeasonForwards();
+                SeasonsManager.Instance.ChangeSeasonBackwards();
             }
         }
 
@@ -103,9 +103,9 @@ public class SeasonController : MonoBehaviour
         int rotation = 0;
 
         if (SeasonsManager.Instance.NextSeason == seasonStone.season)
-            rotation = 90;
-        else if (SeasonsManager.Instance.PreviousSeason == seasonStone.season)
             rotation = -90;
+        else if (SeasonsManager.Instance.PreviousSeason == seasonStone.season)
+            rotation = 90;
         else if (SeasonsManager.Instance.CurrentSeason == seasonStone.season)
             rotation = 0;
         else
