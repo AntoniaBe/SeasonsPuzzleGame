@@ -14,11 +14,15 @@ public class GrabbableSeasonStone : MonoBehaviour
     public Season season;
     private GameObject interactedController;
 
-    private bool isGrabbable; 
+    public bool IsGrabbable {get; set;} 
+
+    public bool IsTaken {get; set;}
 
     // Start is called before the first frame update
     void Start()
     {
+        IsTaken = false;
+
         if (GetComponent<VRTK_InteractableObject>() == null)
         {
             Debug.Log("Season Stone has no InteractableObject script property");
@@ -32,7 +36,7 @@ public class GrabbableSeasonStone : MonoBehaviour
     {
         GameObject interactingObject = e.interactingObject;
 
-        if (interactingObject == leftVrController || interactingObject == rightVrController)
+        if (IsGrabbable && (interactingObject == leftVrController || interactingObject == rightVrController))
         {
             SeasonController seasonController = interactingObject.GetComponent<SeasonController>();
 
@@ -40,6 +44,7 @@ public class GrabbableSeasonStone : MonoBehaviour
                 throw new Exception("The interacting controller has no SeasonController script component");
 
             seasonController.AttachSeasonStone(this);
+            IsTaken = true;
         }
         else
         {
