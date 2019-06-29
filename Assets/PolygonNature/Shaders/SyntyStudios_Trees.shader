@@ -18,11 +18,11 @@ Shader "SyntyStudios/Trees"
 		_Small_WindAmount("Small_WindAmount", Float) = 1
 		_Cutoff( "Mask Clip Value", Float ) = 0.5
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
-		[HideInInspector] __dirty("", Int) = 1
+		[HideInInspector] __dirty( "", Int ) = 1
 
-			//GrayScale
+		//GrayScale
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0, 50)) = 0
+		_Radius("Radius",Range(0,50)) = 0
 		_Softness("Sphere Softness", Range(0,100)) = 0
 
 	}
