@@ -6,9 +6,12 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
+
+
+
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0,50)) = 0
-		_Softness("Sphere Softness", Range(0,100)) = 0
+			_Radius("Radius",Range(0, 50)) = 0
+			_Softness("Sphere Softness", Range(0,100)) = 0
     }
     SubShader
     {

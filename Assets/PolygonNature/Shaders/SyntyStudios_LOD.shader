@@ -12,6 +12,11 @@ Shader "SyntyStudios/LOD"
 		_Cutoff( "Mask Clip Value", Float ) = 0.5
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
+
+		_Position("World Position", Vector) = (0,0,0,0)
+		_Radius("Radius",Range(0,50)) = 0
+		_Softness("Sphere Softness", Range(0,100)) = 0
+
 	}
 
 	SubShader
@@ -31,6 +36,7 @@ Shader "SyntyStudios/LOD"
 		struct Input
 		{
 			float2 uv_texcoord;
+			float3 worldPos;
 		};
 
 		uniform sampler2D _MainTexture;
@@ -43,13 +49,39 @@ Shader "SyntyStudios/LOD"
 		uniform float4 _EmissionMask_ST;
 		uniform float _Cutoff = 0.5;
 
+		//GrayScale
+		float4 _Position;
+		half _Radius;
+		half _Softness;
+
+
 		void surf( Input i , inout SurfaceOutputStandard o )
 		{
 			float2 uv_MainTexture = i.uv_texcoord * _MainTexture_ST.xy + _MainTexture_ST.zw;
 			float4 tex2DNode2 = tex2D( _MainTexture, uv_MainTexture );
+
+
+
 			float2 uv_ColorMask = i.uv_texcoord * _ColorMask_ST.xy + _ColorMask_ST.zw;
 			float4 lerpResult162 = lerp( _ColorTint , float4(1,1,1,0) , tex2D( _ColorMask, uv_ColorMask ));
-			o.Albedo = ( tex2DNode2 * lerpResult162 ).rgb;
+
+
+			//Grayscale
+
+			fixed4 c = (tex2DNode2 * lerpResult162);
+
+
+			half grayscale = half((c.r + c.g + c.b)*0.111);
+			fixed3 c_g = (grayscale, grayscale, grayscale);
+
+			half dis = distance(_Position, i.worldPos);
+			half sum = saturate((dis - _Radius) / -_Softness);
+			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+
+			o.Albedo = lerpColor.rgb;
+			//o.Albedo = ( tex2DNode2 * lerpResult162 ).rgb;
+
+
 			float2 uv_EmissionMask = i.uv_texcoord * _EmissionMask_ST.xy + _EmissionMask_ST.zw;
 			float4 lerpResult163 = lerp( _Emission , float4(0,0,0,0) , tex2D( _EmissionMask, uv_EmissionMask ));
 			o.Emission = lerpResult163.rgb;

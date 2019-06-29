@@ -21,6 +21,11 @@ Shader "SyntyStudios/Water"
 		_WaterOpacity("Water Opacity", Range( 0 , 1)) = 0
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
+
+		//GrayScale
+		_Position("World Position", Vector) = (0,0,0,0)
+		_Radius("Radius",Range(0,50)) = 0
+		_Softness("Sphere Softness", Range(0,100)) = 0
 	}
 
 	SubShader
@@ -40,6 +45,7 @@ Shader "SyntyStudios/Water"
 		{
 			half2 uv_texcoord;
 			float4 screenPos;
+			float3 worldPos;
 		};
 
 		uniform half _WaterScale;
@@ -61,6 +67,11 @@ Shader "SyntyStudios/Water"
 		uniform half _WaterReflection;
 		uniform half _WaterOpacity;
 
+		//GrayScale
+		float4 _Position;
+		half _Radius;
+		half _Softness;
+
 		void surf( Input i , inout SurfaceOutputStandardSpecular o )
 		{
 			half2 temp_cast_0 = (_WaterSpeed).xx;
@@ -74,8 +85,22 @@ Shader "SyntyStudios/Water"
 			float2 uv_Foam_Texture = i.uv_texcoord * _Foam_Texture_ST.xy + _Foam_Texture_ST.zw;
 			float2 panner116 = ( 1.0 * _Time.y * float2( -0.01,0.01 ) + uv_Foam_Texture);
 			float temp_output_114_0 = ( saturate( pow( ( temp_output_89_0 + _FoamDepth ) , _FoamFalloff ) ) * tex2D( _Foam_Texture, panner116 ).r );
-			float4 lerpResult117 = lerp( lerpResult13 , half4(1,1,1,0) , temp_output_114_0);
-			o.Albedo = lerpResult117.rgb;
+			fixed4 lerpResult117 = lerp( lerpResult13 , half4(1,1,1,0) , temp_output_114_0);
+
+			//Grayscale
+
+
+			half grayscale = half((lerpResult117.r + lerpResult117.g + lerpResult117.b)*0.111);
+			fixed3 c_g = (grayscale, grayscale, grayscale);
+
+			half dis = distance(_Position, i.worldPos);
+			half sum = saturate((dis - _Radius) / -_Softness);
+			fixed4 lerpColor = lerp(lerpResult117, fixed4(c_g, 1), sum);
+
+			o.Albedo = lerpColor.rgb;
+
+
+			//o.Albedo = lerpResult117.rgb;
 			float temp_output_104_0 = _WaterSpecular;
 			half3 temp_cast_2 = (temp_output_104_0).xxx;
 			o.Specular = temp_cast_2;
