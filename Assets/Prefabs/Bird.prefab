@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 2575757453497649756}
   - component: {fileID: 2575757453507175870}
   - component: {fileID: 3809879804440102942}
+  - component: {fileID: 1851886917}
   m_Layer: 0
   m_Name: Bird
   m_TagString: Bird
@@ -558,12 +559,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   steeringSpeed: 1.33
   speed: 1.25
-  minDist: 0.25
+  minDist: 0.2
   sdkSetup: {fileID: 0}
   claws: {fileID: 7460437222550843450}
   flyingSeasons: 03000000
   south: {fileID: 0}
   gatheringPosition: {fileID: 0}
+--- !u!136 &1851886917
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2575757453497816700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.13
+  m_Height: 0.75
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.12, z: 0.06}
 --- !u!1 &2575757453497816702
 GameObject:
   m_ObjectHideFlags: 0
