@@ -10,6 +10,8 @@ public class GrabbableEvent : UnityEvent<GrabbableSeasonStone>
 
 public class StateManager : Singleton<StateManager>
 {
+    public GameObject key;
+
     private SeasonsManager seasonsManager;
     public GrabbableSeasonStone springStone;
     public GrabbableSeasonStone summerStone;
@@ -39,7 +41,8 @@ public class StateManager : Singleton<StateManager>
         autumnStone.gameObject.SetActive(false);
 
         bird = GameObject.FindGameObjectWithTag("Bird");
-        if (bird == null) Debug.LogError("No GameObject with \"Bird found\"");
+        if (bird == null) 
+            Debug.LogError("No GameObject with \"Bird found\"");
 
         seasonsManager.CurrentSeason = Season.WINTER;
     }
@@ -79,5 +82,9 @@ public class StateManager : Singleton<StateManager>
         {
             // bird.SetActive(false);
         }
+
+        //For test only
+        if(season == Season.SPRING)
+            bird.GetComponent<BirdBehaviour>().PickUp(key.transform);
     }
 }

@@ -17,8 +17,12 @@ public class BirdBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject sdkSetup;
 
+    [SerializeField]
+    private Transform claws;
+
     private Animator animator;
     private Vector3 target;
+    private Transform targetTransform;
 
     [SerializeField]
     private Season[] flyingSeasons;
@@ -40,6 +44,9 @@ public class BirdBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if(targetTransform != null && target != south.position)
+            target = targetTransform.position;
+
         if(Vector3.Distance(transform.position, target) > minDist)
         {
             var targetDir = target - transform.position;
@@ -49,12 +56,20 @@ public class BirdBehaviour : MonoBehaviour
             var pos = transform.position;
             pos += transform.forward * speed * Time.deltaTime;
             transform.position = pos;
+            
         }
         else
         {
-            var newTarget = transform.position + new Vector3(Random.Range(-1, 2f), 0, Random.Range(-1, 2f));
-            Debug.Log(newTarget);
-            ChangeTarget(newTarget);
+            if(targetTransform != null){
+                targetTransform.position = claws.position;
+                targetTransform.parent = claws;
+                targetTransform = null;
+                GoIdle();
+            }else{
+                var newDir = transform.forward * 2 + transform.right * Random.Range(0.5f, 2f);
+                newDir.y = 0;
+                ChangeTarget(transform.position + newDir);
+            }
         }
     }
 
@@ -63,15 +78,35 @@ public class BirdBehaviour : MonoBehaviour
         this.target = target;
     }
 
+    public void PickUp(Transform target)
+    {
+        //TODO Disable potential rigidbody
+        if(claws.Find(target.name) == target)
+            return;
+
+        targetTransform = target;
+    }
+
+    public void Drop(){
+        var obj = claws.GetChild(0);
+        obj.parent = claws.parent.parent;
+        obj.gameObject.AddComponent<Rigidbody>();
+    }
+
     private void OnSeasonUpdate(Season season)
     {
         if (flyingSeasons.Contains(season))
         {
-            ChangeTarget(gatheringPosition.position);
+            GoIdle();
         }
         else
         {
             ChangeTarget(south.position);
         }
+    }
+
+    private void GoIdle()
+    {
+        ChangeTarget(gatheringPosition.position + new Vector3(Random.Range(0.25f, 2f), 0, Random.Range(0.25f, 2f)));
     }
 }
