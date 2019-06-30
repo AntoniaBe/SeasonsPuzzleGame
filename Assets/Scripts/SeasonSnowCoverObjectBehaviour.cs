@@ -17,7 +17,6 @@ public class SeasonSnowCoverObjectBehaviour : SeasonObjectBehaviour
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);
-        Debug.Log(currentSeason);
         if (currentSeason == Season.WINTER)
         {
             Lerp();
