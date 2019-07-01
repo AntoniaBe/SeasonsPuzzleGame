@@ -48,10 +48,6 @@ public class BirdBehaviour : MonoBehaviour
 
     private void Update()
     {
-        // if (Time.time - startPeckingTime < peckingTime && isPecking)
-        //     return;
-
-        // isPecking = false;
         if (isPecking)
             return;
 
@@ -75,6 +71,9 @@ public class BirdBehaviour : MonoBehaviour
                 if (targetTransform.GetComponent<Seed>() != null)
                 {
                     Peck();
+                    if(claws.childCount > 0)
+                        Drop();
+                        
                     return;
                 }
 
@@ -88,9 +87,7 @@ public class BirdBehaviour : MonoBehaviour
                 targetTransform = null;
                 GoIdle();
             }else{
-                var newDir = transform.forward * 2 + transform.right * Random.Range(0.5f, 2f);
-                newDir.y = 0;
-                ChangeTarget(transform.position + newDir);
+                GoIdle();
             }
         }
     }
@@ -102,7 +99,9 @@ public class BirdBehaviour : MonoBehaviour
 
     public void PickUp(Transform target)
     {
-        //TODO Disable potential rigidbody
+        if(target.GetComponent<Rigidbody>() != null)
+            Destroy(target.GetComponent<Rigidbody>());
+
         if(claws.Find(target.name) == target)
             return;
 
@@ -117,12 +116,13 @@ public class BirdBehaviour : MonoBehaviour
         {
             Invoke(nameof(Peck), peckingTime);
         }
-        else if (targetTransform != null)
+        else
         {
-            Destroy(targetTransform.gameObject);
+            if (targetTransform != null)
+                Destroy(targetTransform.gameObject);
+
             GoIdle();
         }
-        // startPeckingTime = Time.time;
     }
 
     public void Drop(){
