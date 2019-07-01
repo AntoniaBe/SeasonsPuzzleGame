@@ -15,7 +15,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
     public UnityEvent<Season> UpdateSeasonEvent;
     private Season[] seasons;
     private int currentSeasonIndex;
-    private Season lastActivatedSeason;
+    public Season lastActivatedSeason;
 
     public Season[] Seasons
     {

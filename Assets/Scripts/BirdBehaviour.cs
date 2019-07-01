@@ -117,9 +117,9 @@ public class BirdBehaviour : MonoBehaviour
         {
             Invoke(nameof(Peck), peckingTime);
         }
-        else
+        else if (targetTransform != null)
         {
-            targetTransform = null;
+            Destroy(targetTransform.gameObject);
             GoIdle();
         }
         // startPeckingTime = Time.time;

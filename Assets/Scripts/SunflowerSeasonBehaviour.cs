@@ -9,34 +9,30 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
 
     public override void UpdateRepresentation(Season currentSeason){
         base.UpdateRepresentation(currentSeason);
-        var lastSeason = SeasonsManager.Instance.PreviousSeason;
+        var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
         Debug.Log(currentSeason + ", " + lastSeason);
         switch(currentSeason){
             case Season.SUMMER:
-                if(lastSeason == Season.SPRING){
-                    Bloom();
-                }else{
-                    ReBloom();
-                }
+                Bloom();
                 break;
 
             case Season.AUTUMN:
                 if(lastSeason == Season.SUMMER){
                     Wither();
                 }else{
-                    //TODO ?
+                    ReBloom();
                 }
                 break;
 
             case Season.WINTER:
                 if(lastSeason == Season.AUTUMN){
-                    //TODO ??
+                    ReBloom();
                 }else{
                     Shrink();
                 }
                 break;
 
-                case Season.SPRING:
+            case Season.SPRING:
                 if(lastSeason == Season.WINTER){
                     Grow();
                 }

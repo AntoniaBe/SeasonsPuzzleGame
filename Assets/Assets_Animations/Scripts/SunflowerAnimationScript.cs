@@ -70,9 +70,6 @@ public class SunflowerAnimationScript : MonoBehaviour
         //Sonnenblume schließt sich wieder
         if (sunflowerBloomToGrow)
         {
-       
-            Debug.Log("sunflowerBloomToGrow " + currentZ);
-
             if(currentZ > 4)
             {
                 currentZ = 4;
