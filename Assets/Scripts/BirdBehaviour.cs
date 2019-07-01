@@ -26,11 +26,14 @@ public class BirdBehaviour : MonoBehaviour
 
     [SerializeField]
     private Season[] flyingSeasons;
-
+    [SerializeField]
+    private float peckingTime;
     [SerializeField]
     private Transform south;
     [SerializeField]
     private Transform gatheringPosition;
+    // private float startPeckingTime;
+    private bool isPecking;
 
     void Awake()
     {
@@ -40,10 +43,18 @@ public class BirdBehaviour : MonoBehaviour
     private void Start(){
         animator = GetComponent<Animator>();
         animator.SetBool("Flying", true);
+        isPecking = false;
     }
 
     private void Update()
     {
+        // if (Time.time - startPeckingTime < peckingTime && isPecking)
+        //     return;
+
+        // isPecking = false;
+        if (isPecking)
+            return;
+
         if(targetTransform != null && target != south.position)
             target = targetTransform.position;
 
@@ -61,6 +72,17 @@ public class BirdBehaviour : MonoBehaviour
         else
         {
             if(targetTransform != null){
+                if (targetTransform.GetComponent<Seed>() != null)
+                {
+                    Peck();
+                    return;
+                }
+
+                if (targetTransform.GetComponent<Rigidbody>() != null)
+                {
+                    Destroy(targetTransform.GetComponent<Rigidbody>());
+                }
+
                 targetTransform.position = claws.position;
                 targetTransform.parent = claws;
                 targetTransform = null;
@@ -85,6 +107,22 @@ public class BirdBehaviour : MonoBehaviour
             return;
 
         targetTransform = target;
+    }
+
+    public void Peck()
+    {
+        // play pecking animation
+        isPecking = !isPecking;
+        if (isPecking)
+        {
+            Invoke(nameof(Peck), peckingTime);
+        }
+        else
+        {
+            targetTransform = null;
+            GoIdle();
+        }
+        // startPeckingTime = Time.time;
     }
 
     public void Drop(){

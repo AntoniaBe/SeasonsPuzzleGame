@@ -7,6 +7,14 @@ TagManager:
   - GreenToColor
   - Stick
   - Bird
+  - Leg
+  - SnapCube
+  - Arm
+  - SnapCylinder
+  - Saucers
+  - ExcludeTeleport
+  - Torso
+  - Head
   layers:
   - Default
   - TransparentFX
@@ -16,8 +24,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Stick
+  - IgnoreStick
   - 
   - 
   - 
