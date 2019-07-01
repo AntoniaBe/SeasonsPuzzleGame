@@ -11,7 +11,6 @@ public class GrabbableEvent : UnityEvent<GrabbableSeasonStone>
 public class StateManager : Singleton<StateManager>
 {
     public GameObject key;
-
     private SeasonsManager seasonsManager;
     public GrabbableSeasonStone springStone;
     public GrabbableSeasonStone summerStone;
