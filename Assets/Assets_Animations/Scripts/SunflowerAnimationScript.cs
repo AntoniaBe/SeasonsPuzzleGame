@@ -9,11 +9,13 @@ public class SunflowerAnimationScript : MonoBehaviour
     float currentZ = 0;   // the amount of time that has elapsed so far
     public GameObject[] sunflowerPartsGreenToColor;
     public bool sunflowerIdleToGrow = false;
-    public bool sunflowerGrowToIdle = false;
+   // public bool sunflowerGrowToIdle = false;
     public bool sunflowerGrowToBloom = false;
-    public bool sunflowerBloomToGrow = false;
+    //public bool sunflowerBloomToGrow = false;
     public bool sunflowerBloomToWilt = false;
-    public bool sunflowerWiltToBloom = false;
+    //public bool sunflowerWiltToBloom = false;
+    public bool sunflowerWiltToFall = false;
+    //public bool sunflowerFallToWilt= false;
     public bool sunflowerIdle = false;
 
     public Animator sunflowerAnim;
@@ -31,28 +33,32 @@ public class SunflowerAnimationScript : MonoBehaviour
         {
             sunflowerAnim.SetBool("Grow", true);
             sunflowerAnim.SetBool("Idle", false);
-            sunflowerAnim.SetBool("Wilt", false);
+            sunflowerAnim.SetBool("Falling", false);
+            foreach (GameObject sun in sunflowerPartsGreenToColor)
+            {
+                sun.GetComponent<Renderer>().material.SetFloat("_Blend", 0);
+            }
         }
 
         //Sonnenblume wächst zurück
-        if (sunflowerGrowToIdle)
+       /* if (sunflowerGrowToIdle)
         {
             sunflowerAnim.SetBool("Grow", false);
 
-        }
+        }*/
 
 
         //Sonnenblume öffnet sich
         if (sunflowerGrowToBloom)
         {
-           //Debug.Log("sunflowerGrowToBloom " + currentZ);
-           
+            //Debug.Log("sunflowerGrowToBloom " + currentZ);
+
 
             if (currentZ < 0)
             {
                 currentZ = 0;
 
-            } else
+            } else 
             {
                 currentZ += Time.deltaTime;
                 float percentComplete = currentZ / totalZ; // value between 0 - 1
@@ -68,7 +74,7 @@ public class SunflowerAnimationScript : MonoBehaviour
         }
 
         //Sonnenblume schließt sich wieder
-        if (sunflowerBloomToGrow)
+     /*   if (sunflowerBloomToGrow)
         {
             if(currentZ > 4)
             {
@@ -86,7 +92,7 @@ public class SunflowerAnimationScript : MonoBehaviour
                 sunflowerAnim.SetBool("Bloom", false);
             }
            
-        }
+        }*/
 
         //Sonnenblume verwelkt
         if (sunflowerBloomToWilt)
@@ -94,11 +100,24 @@ public class SunflowerAnimationScript : MonoBehaviour
             sunflowerAnim.SetBool("Wilt", true);
         }
 
-        //Sonnenblume blüht wieder
-        if (sunflowerWiltToBloom)
+        //Sonnenblume öffnet sich wieder
+       /* if (sunflowerWiltToBloom)
         {
             sunflowerAnim.SetBool("Wilt", false);
+        }*/
+
+        //Sonnenblume fällt auseinander
+        if (sunflowerWiltToFall)
+        {
+            sunflowerAnim.SetBool("Falling", true);
         }
+
+        //Sonnenblume wird wieder ganz, ist aber verwelkt
+       /* if (sunflowerFallToWilt)
+        {
+            sunflowerAnim.SetBool("Falling", false);
+        }*/
+
 
         //Nichts, Sonnenblume wurde hier eingefplanzt? 
         if (sunflowerIdle)
@@ -106,7 +125,24 @@ public class SunflowerAnimationScript : MonoBehaviour
             sunflowerAnim.SetBool("Idle", true);
             sunflowerAnim.SetBool("Grow", false);
             sunflowerAnim.SetBool("Bloom", false);
+            sunflowerAnim.SetBool("Wilt", false);
 
+            if (currentZ > 4)
+            {
+                currentZ = 4;
+            }
+            else
+            {
+                currentZ -= Time.deltaTime; // add time each frame
+                float percentComplete = currentZ / totalZ; // value between 1 - 0
+                percentComplete = Mathf.Clamp01(percentComplete);
+                // Debug.Log("sunflowerBloomToGrow, percentComplete " + percentComplete);
+                foreach (GameObject sun in sunflowerPartsGreenToColor)
+                {
+                    sun.GetComponent<Renderer>().material.SetFloat("_Blend", percentComplete);
+                }
+                sunflowerAnim.SetBool("Bloom", false);
+            }
 
         }
     }

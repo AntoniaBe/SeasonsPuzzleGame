@@ -73,11 +73,11 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
 
     private void HandleAnimation(params bool[] states){
         animationScript.sunflowerIdleToGrow = states[0];
-        animationScript.sunflowerGrowToIdle = states[1];
+       // animationScript.sunflowerGrowToIdle = states[1];
         animationScript.sunflowerGrowToBloom = states[2];
-        animationScript.sunflowerBloomToGrow = states[3];
+       // animationScript.sunflowerBloomToGrow = states[3];
         animationScript.sunflowerBloomToWilt = states[4];
-        animationScript.sunflowerWiltToBloom = states[5];
+       // animationScript.sunflowerWiltToBloom = states[5];
         animationScript.sunflowerIdle = states[6];
     }
 
