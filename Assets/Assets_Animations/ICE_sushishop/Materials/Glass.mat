@@ -82,7 +82,7 @@ Material:
     - _DstBlend: 10
     - _Freezeeffectnormal: 8.66
     - _Freezing: 4.28
-    - _Gloss: 0.335
+    - _Gloss: 0.404
     - _Gloss2: 0.763
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -90,7 +90,7 @@ Material:
     - _Ice_fres: 2.54
     - _Ice_fresnel: 2.8
     - _LocalGlobal: 1
-    - _Metallic: 0.415
+    - _Metallic: 0.292
     - _Mode: 2
     - _OcclusionStrength: 1
     - _Parallax: 0.02

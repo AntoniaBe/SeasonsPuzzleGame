@@ -20,11 +20,6 @@ public class SunflowerAnimationScript : MonoBehaviour
 
     public Animator sunflowerAnim;
 
-    void Start()
-    {
-        sunflowerAnim = sunflower.GetComponent<Animator>();
-    } 
-
     void Update()
     {
 
