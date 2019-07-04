@@ -101,10 +101,12 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Radius: 20
     - _Small_Wave: 0
     - _Small_WindAmount: 0
     - _Small_WindSpeed: 0
     - _SmoothnessTextureChannel: 0
+    - _Softness: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Tree_Wave: 7.97
@@ -120,3 +122,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Position: {r: 0, g: 0, b: 0, a: 0}

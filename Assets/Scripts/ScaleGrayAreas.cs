@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,14 +39,30 @@ public class ScaleGrayAreas : MonoBehaviour
     private float currentTime = 0;
     private bool enableANewSector;
 
-    public void changeGrayAreaToColor( int seasonindex )
+    private void changeGrayAreaToColor( int seasonindex )
     {
         currentTime += Time.deltaTime;
         foreach ( Material m in allMaterials[ sectorToChange ] )
         {
-            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 100, 0, currentTime / timeToLerp ) );
+            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 0, 50, currentTime / timeToLerp ) );
         }
-        if ( currentTime / timeToLerp >= 1 ) enableANewSector = false;
+        if ( (currentTime / timeToLerp) >= 1 )
+        {
+            enableANewSector = false;
+            currentTime = 0;
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        foreach ( Material[] materials in allMaterials )
+        {
+            foreach ( Material m in materials )
+            {
+                m.SetFloat( Shader.PropertyToID( "_Radius" ), 0 );
+            }
+
+        }
     }
 
     // Start is called before the first frame update
@@ -67,35 +84,51 @@ public class ScaleGrayAreas : MonoBehaviour
 
     }
 
-    private void changeToSektorMaterial( Transform transformo, int sektorenNummer )
+    private void changeToSektorMaterial( Transform transformo, int sektorNumber )
     {
         if ( transformo.childCount < 1 ) return;
         foreach ( Transform child in transformo )
         {
+            TreeSeasonBehaviour treebehaviour = child.gameObject.GetComponent<TreeSeasonBehaviour>();
+            if ( treebehaviour ) changeTreeSeasonMaterialsToSektors( treebehaviour, sektorNumber );
             Renderer r = child.gameObject.GetComponent<Renderer>();
             if ( r != null )
             {
                 Material[ ] ms = r.materials;
-                if ( sektorenNummer == 1 )
-                    Debug.Log( "h" );
-                string name = child.gameObject.name;
                 if ( ms != null )
                 {
                     List<Material> newMaterials = new List<Material>();
                     foreach ( Material material in ms )
                     {
-                        string newMaterialname = "Sektor" + sektorenNummer + "/" + material.name;
+                        string newMaterialname = "Sektor" + sektorNumber + "/" + material.name;
                         Material newMaterial = (Material) Resources.Load( newMaterialname, typeof( Material ) );
                         if ( newMaterial != null ) newMaterials.Add( newMaterial );
+                        else { newMaterials.Add( material ); }
                     }
                     child.gameObject.GetComponent<Renderer>().materials = newMaterials.ToArray();
                 }
             }
 
             if ( child.childCount < 1 ) continue;
-            changeToSektorMaterial( child, sektorenNummer );
+            changeToSektorMaterial( child, sektorNumber );
 
         }
+    }
+
+    private void changeTreeSeasonMaterialsToSektors( TreeSeasonBehaviour treebehaviour, int sektorNumber )
+    {
+        Material[ ] seasonMaterials = treebehaviour.seasonMaterials;
+        List<Material> newMaterials = new List<Material>();
+
+        foreach ( Material material in seasonMaterials )
+        {
+            string newMaterialname = "Sektor" + sektorNumber + "/" + material.name;
+            Material newMaterial = (Material) Resources.Load( newMaterialname, typeof( Material ) );
+            if ( newMaterial != null ) newMaterials.Add( newMaterial );
+            else { newMaterials.Add( material ); }
+        }
+        treebehaviour.seasonMaterials = newMaterials.ToArray();
+
     }
 
     public void enableSector( int sectorindex )

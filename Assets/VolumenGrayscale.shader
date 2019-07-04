@@ -10,7 +10,7 @@
 
 
 		_Position("World Position", Vector) = (0,0,0,0)
-			_Radius("Radius",Range(0, 50)) = 0
+			_Radius("Radius",Range(0, 20)) = 0
 			_Softness("Sphere Softness", Range(0,100)) = 0
     }
     SubShader
@@ -62,7 +62,7 @@
 
 			half dis = distance(_Position, IN.worldPos);
 			half sum = saturate((dis - _Radius)/ -_Softness);
-			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+			fixed4 lerpColor = lerp(fixed4(c_g, 1),c,  sum);
 
 
             o.Albedo = lerpColor.rgb;

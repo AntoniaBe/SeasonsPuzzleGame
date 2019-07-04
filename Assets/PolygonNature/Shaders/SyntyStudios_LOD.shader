@@ -14,7 +14,7 @@ Shader "SyntyStudios/LOD"
 		[HideInInspector] __dirty( "", Int ) = 1
 
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0,50)) = 0
+		_Radius("Radius",Range(0,20)) = 0
 		_Softness("Sphere Softness", Range(0,100)) = 0
 
 	}
@@ -76,7 +76,7 @@ Shader "SyntyStudios/LOD"
 
 			half dis = distance(_Position, i.worldPos);
 			half sum = saturate((dis - _Radius) / -_Softness);
-			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+			fixed4 lerpColor = lerp(fixed4(c_g, 1), c, sum);
 
 			o.Albedo = lerpColor.rgb;
 			//o.Albedo = ( tex2DNode2 * lerpResult162 ).rgb;

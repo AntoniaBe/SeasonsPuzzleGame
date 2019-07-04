@@ -102,7 +102,7 @@ Material:
     - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 0
+    - _Radius: 20
     - _Small_Wave: 0
     - _Small_WindAmount: 1
     - _Small_WindSpeed: 0

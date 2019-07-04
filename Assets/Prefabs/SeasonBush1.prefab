@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4491535106845169985}
-  m_LocalRotation: {x: -0.40821788, y: 0.23456968, z: -0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: -0.40822002, y: 0.23456722, z: -0.10938323, w: 0.8754256}
   m_LocalPosition: {x: -2.5367782, y: -1.8177612, z: 2.2232316}
   m_LocalScale: {x: 1.2463, y: 1.2463001, z: 1.2463}
   m_Children:
   - {fileID: 4486592358306262363}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -41.561, y: 41.93, z: -30.79}
 --- !u!33 &4477945453185991705
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -116,10 +116,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seasonMaterials:
-  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
+  - {fileID: 2100000, guid: bdbf110afd2c6d04ea3e3640d8758063, type: 2}
   - {fileID: 2100000, guid: 4fb6cc23ca04b3946abc52e857229110, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
-  - {fileID: 2100000, guid: d782eb9dd0e7bf149bcc879a4da28434, type: 2}
+  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
 --- !u!1 &4491584476641518425
 GameObject:
   m_ObjectHideFlags: 0

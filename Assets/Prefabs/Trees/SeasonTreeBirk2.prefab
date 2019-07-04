@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seasonMaterials:
-  - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
+  - {fileID: 2100000, guid: bdbf110afd2c6d04ea3e3640d8758063, type: 2}
   - {fileID: 2100000, guid: c565ec8004407544a89e542d65132d98, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
   - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}

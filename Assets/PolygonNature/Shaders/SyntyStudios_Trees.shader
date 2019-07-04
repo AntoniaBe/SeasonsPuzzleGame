@@ -22,7 +22,7 @@ Shader "SyntyStudios/Trees"
 
 		//GrayScale
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0,50)) = 0
+		_Radius("Radius",Range(0,20)) = 0
 		_Softness("Sphere Softness", Range(0,100)) = 0
 
 	}
@@ -104,13 +104,15 @@ Shader "SyntyStudios/Trees"
 
 			half dis = distance(_Position, i.worldPos);
 			half sum = saturate((dis - _Radius) / -_Softness);
-			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+			fixed4 lerpColor = lerp(fixed4(c_g, 1), c,  sum);
+			fixed4 lerpColorEmission = lerp(fixed4(c_g, 1), _EmissionColor, sum);
+
 
 			o.Albedo = lerpColor.rgb;
 			//o.Albedo = ( tex2DNode2 * _ColorTint ).rgb;
 
 			float2 uv_Emission = i.uv_texcoord * _Emission_ST.xy + _Emission_ST.zw;
-			o.Emission = ( tex2D( _Emission, uv_Emission ) * _EmissionColor ).rgb;
+			o.Emission = ( tex2D( _Emission, uv_Emission ) * lerpColorEmission).rgb;
 			o.Alpha = 1;
 			clip( tex2DNode2.a - _Cutoff );
 		}
