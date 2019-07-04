@@ -32,7 +32,7 @@ public class ScaleGrayAreas : MonoBehaviour
 
     private List<Material[ ]> allMaterials = new List<Material[ ]>();
 
-    public int sectorToChange;
+    private int sectorToChange;
 
     [SerializeField]
     private float timeToLerp;

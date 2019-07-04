@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolygonNature_Leaves_Pine
+  m_Name: PolygonNature_Leaves_Pine (Instance)
   m_Shader: {fileID: 4800000, guid: 4b0390819f518774fa1a44198298459a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -109,7 +109,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 20
+    - _Radius: 0
     - _Small_Wave: 1
     - _Small_WindAmount: 0.05
     - _Small_WindSpeed: 0.015
