@@ -19,7 +19,7 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     private Texture defaultTexture = null;
 
     [SerializeField]
-    private Material natureMaterial = null;
+    private Material[] natureMaterials = null;
 
     [SerializeField]
     private Renderer skyBox = null;
@@ -33,7 +33,7 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);
-        natureMaterial.mainTexture = environmentTextures[(int)currentSeason];
+        giveAllNatureMaterialsNewSeasonTexture( currentSeason );
         skyBox.material.mainTexture = skyBoxTextures[(int)currentSeason];
 
         var isWinter = currentSeason == Season.WINTER;
@@ -49,6 +49,17 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
 
     private void OnApplicationQuit()
     {
-        natureMaterial.mainTexture = defaultTexture;
+        foreach ( Material material in natureMaterials )
+        {
+            material.mainTexture = defaultTexture;
+        }
+    }
+
+    private void giveAllNatureMaterialsNewSeasonTexture(Season currentSeason) {
+        foreach(Material material in natureMaterials )
+        {
+           material.mainTexture = environmentTextures[ (int) currentSeason ];
+        }
+
     }
 }

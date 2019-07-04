@@ -94,7 +94,9 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Radius: 20
     - _SmoothnessTextureChannel: 0
+    - _Softness: 0
     - _SpecularHighlights: 0
     - _SrcBlend: 1
     - _Transparency: 0.490779
@@ -113,5 +115,6 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Position: {r: 0, g: 0, b: 0, a: 0}
     - _WaterDeepColor: {r: 0.14901961, g: 0.28235295, b: 0.29411766, a: 0}
     - _WaterShallowColor: {r: 0.30196077, g: 0.42745098, b: 0.41960785, a: 0}

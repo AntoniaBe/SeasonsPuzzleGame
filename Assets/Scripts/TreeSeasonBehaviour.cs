@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class TreeSeasonBehaviour : SeasonObjectBehaviour
 {
-    [SerializeField]
-    private Material[] seasonMaterials;
+    public Material[] seasonMaterials;
 
     public override void UpdateRepresentation(Season currentSeason)
     {

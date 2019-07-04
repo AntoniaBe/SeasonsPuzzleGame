@@ -19,6 +19,7 @@ public class StateManager : Singleton<StateManager>
     private GameObject bird;
     public UnityEvent<GrabbableSeasonStone> OnStoneTaken;
     private bool tutorialDone;
+    [SerializeField] ScaleGrayAreas grayManager;
 
     void Awake()
     {
@@ -49,7 +50,7 @@ public class StateManager : Singleton<StateManager>
     private void StoneTaken(GrabbableSeasonStone stone)
     {
         if(stone.season == Season.WINTER){
-            //TODO color center
+            grayManager.enableSector( 0 );
             springStone.gameObject.SetActive(true);
             summerStone.gameObject.SetActive(true);
         }
@@ -60,8 +61,8 @@ public class StateManager : Singleton<StateManager>
         }
 
         if(stone.season == Season.AUTUMN)
-            //TODO color first sector
-            Debug.Log("TODO");
+            grayManager.enableSector( 0 );
+        Debug.Log("TODO");
             tutorialDone = true;
     }
 

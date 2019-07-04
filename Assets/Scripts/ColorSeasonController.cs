@@ -13,6 +13,9 @@ public class ColorSeasonController : SeasonObjectBehaviour
     [SerializeField]
     private Material material;
 
+    [SerializeField]
+    private Material[] materials;
+
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);

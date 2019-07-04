@@ -6,9 +6,12 @@
         _MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
+
+
+
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0,500)) = 0
-		_Softness("Sphere Softness", Range(0,100)) = 0
+			_Radius("Radius",Range(0, 20)) = 0
+			_Softness("Sphere Softness", Range(0,100)) = 0
     }
     SubShader
     {
@@ -59,7 +62,7 @@
 
 			half dis = distance(_Position, IN.worldPos);
 			half sum = saturate((dis - _Radius)/ -_Softness);
-			fixed4 lerpColor = lerp(c, fixed4(c_g, 1), sum);
+			fixed4 lerpColor = lerp(fixed4(c_g, 1),c,  sum);
 
 
             o.Albedo = lerpColor.rgb;
