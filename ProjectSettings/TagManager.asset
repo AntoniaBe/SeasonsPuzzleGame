@@ -16,6 +16,7 @@ TagManager:
   - ExcludeTeleport
   - Torso
   - Head
+  - Key
   layers:
   - Default
   - TransparentFX
