@@ -22,7 +22,7 @@ public class SunflowerAnimationScript : MonoBehaviour
 
     void Update()
     {
-
+        return;
         //Sonnenblume wächst
         if (sunflowerIdleToGrow)
         {
@@ -92,7 +92,8 @@ public class SunflowerAnimationScript : MonoBehaviour
         //Sonnenblume verwelkt
         if (sunflowerBloomToWilt)
         {
-            sunflowerAnim.SetBool("Wilt", true);
+            sunflowerAnim.Play("Wilt");
+            // sunflowerAnim.SetBool("Wilt", true);
         }
 
         //Sonnenblume öffnet sich wieder
@@ -104,7 +105,8 @@ public class SunflowerAnimationScript : MonoBehaviour
         //Sonnenblume fällt auseinander
         if (sunflowerWiltToFall)
         {
-            sunflowerAnim.SetBool("Falling", true);
+            sunflowerAnim.Play("Falling");
+            //sunflowerAnim.SetBool("Falling", true);
         }
 
         //Sonnenblume wird wieder ganz, ist aber verwelkt

@@ -16,6 +16,9 @@ public class SeasonController : MonoBehaviour
     private Dictionary<Season, GameObject> seasonStones;
     private int degreesLeftOfSeasonStoneRotation;
     private int degreesPerFixedFrameOfSeasonStoneRotation;
+    private float lastSeasonSwitchTime;
+    [SerializeField]
+    private float seasonSwitchDuration = 3f;
 
     private void Awake()
     {
@@ -58,6 +61,11 @@ public class SeasonController : MonoBehaviour
 
     private void TouchEnd(object sender, ControllerInteractionEventArgs e)
     {
+        if (Time.time - lastSeasonSwitchTime < seasonSwitchDuration)
+            return;
+
+        lastSeasonSwitchTime = Time.time;
+
         if (Mathf.Abs(startTouchX - lastTouchX) < touchSwipeThreshold)
             return;
 
