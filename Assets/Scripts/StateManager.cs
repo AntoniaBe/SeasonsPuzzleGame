@@ -61,9 +61,10 @@ public class StateManager : Singleton<StateManager>
         }
 
         if(stone.season == Season.AUTUMN)
-            grayManager.enableSector( 0 );
-        Debug.Log("TODO");
+        {
+            grayManager.enableSector(1);
             tutorialDone = true;
+        }
     }
 
     private void OnSeasonUpdate(Season season)

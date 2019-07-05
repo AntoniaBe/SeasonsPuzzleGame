@@ -49,6 +49,9 @@ public class GrabbableSeasonStone : MonoBehaviour
                 rb.detectCollisions = false;
                 Destroy(rb);
             }
+
+            GetComponent<Collider>().enabled = false;
+            
             seasonController.AttachSeasonStone(this);
             IsTaken = true;
             
