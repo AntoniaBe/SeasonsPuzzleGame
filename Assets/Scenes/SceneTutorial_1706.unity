@@ -903,25 +903,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.096
       objectReference: {fileID: 0}
-    - target: {fileID: 7963742756686265978, guid: ddd4a6c479aef704d82bdc2ad399cfbf,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2.1281545
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: animationScript
+      value: 
+      objectReference: {fileID: 1238128681}
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[2].r
+      value: 0.7169812
       objectReference: {fileID: 0}
-    - target: {fileID: 7963742756686265978, guid: ddd4a6c479aef704d82bdc2ad399cfbf,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.128154
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[2].g
+      value: 0.3804117
       objectReference: {fileID: 0}
-    - target: {fileID: 7963742756686265978, guid: ddd4a6c479aef704d82bdc2ad399cfbf,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2.1281543
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[2].b
+      value: 0.19277322
       objectReference: {fileID: 0}
-    - target: {fileID: 7963742756676375822, guid: ddd4a6c479aef704d82bdc2ad399cfbf,
-        type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[0].r
+      value: 0.30588236
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[0].g
+      value: 0.5471698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854588194, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
+      propertyPath: blossomColors.Array.data[0].b
+      value: 0.15744035
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ddd4a6c479aef704d82bdc2ad399cfbf, type: 3}
@@ -3843,9 +3851,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fa9c7205fa05034c98c9a0cca2ba334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waterMaterial: {fileID: 2100000, guid: 4ccd9521bc19372458f9dda2e76fbce6, type: 2}
+  waterMaterial: {fileID: 2100000, guid: a836b7f4bf627af46b9ad0dd7dfd9cd8, type: 2}
   normalColor: {r: 0.30196077, g: 0.42745098, b: 0.41960785, a: 0}
-  iceColor: {r: 0.83183515, g: 0.8773585, b: 0.87451327, a: 0}
+  iceColor: {r: 1, g: 1, b: 1, a: 0}
   scaleWinter: 1
   scaleNormal: 0.175
   waterSpeed: 0.042
@@ -6306,19 +6314,6 @@ Animator:
     type: 3}
   m_PrefabInstance: {fileID: 346399973}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1854588194
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1854588192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f23a284291895241add617d828569cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animationScript: {fileID: 1238128681}
 --- !u!4 &1854588195 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7963742756686265978, guid: ddd4a6c479aef704d82bdc2ad399cfbf,
@@ -6884,6 +6879,25 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1922965101732017783}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2035313547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2575757453497816700, guid: febbfa947df21e64e8678a8980a4c9a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1684773690813390433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2035313548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035313547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c40b73874ca113b41a090efad1b9a076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: {fileID: 1523964550}
 --- !u!4 &2043940895 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4087767264255734, guid: 27cc7f696b19bba49bc46796c717d699,
@@ -7923,6 +7937,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 199764158784229534, guid: 3758ed06cdf471640b0fdccdc74e21df,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dedbe9b8bee2a784fa489ef0feeb800c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3758ed06cdf471640b0fdccdc74e21df, type: 3}
 --- !u!1001 &2962130700976925071

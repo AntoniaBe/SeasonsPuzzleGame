@@ -73,9 +73,11 @@ public class BirdBehaviour : MonoBehaviour
                     Peck();
                     if(claws.childCount > 0)
                         Drop();
-                        
                     return;
                 }
+
+                if(targetTransform.CompareTag("Key"))
+                    Destroy(GetComponent<BirdKeyFinder>());
 
                 if (targetTransform.GetComponent<Rigidbody>() != null)
                 {
@@ -143,8 +145,9 @@ public class BirdBehaviour : MonoBehaviour
         }
     }
 
-    private void GoIdle()
+    public void GoIdle()
     {
+        targetTransform = null;
         ChangeTarget(gatheringPosition.position + new Vector3(Random.Range(0.25f, 2f), 0, Random.Range(0.25f, 2f)));
     }
 }

@@ -85,7 +85,7 @@ public class StateManager : Singleton<StateManager>
         }
 
         //For test only
-        if(season == Season.SPRING)
-            bird.GetComponent<BirdBehaviour>().PickUp(key.transform);
+        //if(season == Season.SPRING)
+            //bird.GetComponent<BirdBehaviour>().PickUp(key.transform);
     }
 }
