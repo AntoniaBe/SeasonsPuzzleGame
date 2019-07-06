@@ -6,13 +6,13 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SM_Plant_07 (1)
+  m_Name: SM_Plant_Flowers_01
   serializedVersion: 5
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: 1107998680181571340}
+    m_StateMachine: {fileID: 1107409779939001466}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -22,14 +22,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1102149642034494580
+--- !u!1102 &1102320141975563682
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlowerGrowBack
+  m_Name: GrowBack
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -42,20 +42,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5657ae37fd1db8c408a7f24088137484, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9c78c31e8d5807b4192ffcc870d7cb1f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102370013253409496
+--- !u!1102 &1102322931099021216
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlowersIdle
+  m_Name: Bloom
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -68,20 +68,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d0c7ee1c3195bca4bb2881051b7a1b74, type: 2}
+  m_Motion: {fileID: 7400000, guid: 0e068924317193e46992e32cb0a00640, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102540423947128166
+--- !u!1102 &1102373029299057656
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlowersBloom
+  m_Name: Idle
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -94,20 +94,20 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 610c3e04cc759824397b2c6dae570ff9, type: 2}
+  m_Motion: {fileID: 7400000, guid: 8474d9a8754b1044d8400d780d2060d5, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &1102650212407152404
+--- !u!1102 &1102523079120290056
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FlowersGrow
+  m_Name: Grow
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -120,13 +120,13 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bb8cb1ad9ba4e104ca009f679b9a6fdd, type: 2}
+  m_Motion: {fileID: 7400000, guid: e360b3d4a85b4cb40943da8a860f97ac, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1107 &1107998680181571340
+--- !u!1107 &1107409779939001466
 AnimatorStateMachine:
   serializedVersion: 5
   m_ObjectHideFlags: 1
@@ -136,17 +136,17 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102370013253409496}
-    m_Position: {x: 312, y: 0, z: 0}
+    m_State: {fileID: 1102373029299057656}
+    m_Position: {x: 200, y: 0, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102650212407152404}
-    m_Position: {x: 576, y: 0, z: 0}
+    m_State: {fileID: 1102523079120290056}
+    m_Position: {x: 235, y: 65, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102540423947128166}
-    m_Position: {x: 600, y: 192, z: 0}
+    m_State: {fileID: 1102322931099021216}
+    m_Position: {x: 270, y: 130, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 1102149642034494580}
-    m_Position: {x: 312, y: 192, z: 0}
+    m_State: {fileID: 1102320141975563682}
+    m_Position: {x: 305, y: 195, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -154,6 +154,6 @@ AnimatorStateMachine:
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 50, y: 120, z: 0}
-  m_ExitPosition: {x: 816, y: -108, z: 0}
+  m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102370013253409496}
+  m_DefaultState: {fileID: 1102373029299057656}
