@@ -2,40 +2,75 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WheatAnimationScript : MonoBehaviour
+public class WheatAnimationScript : SeasonObjectBehaviour
 {
     public GameObject wheatContainer;
-    public bool wheatGrowLittle;
-    public bool wheatGrowFull;
-    public bool wheatGrowBackLittle;
-    public bool wheatGrowBackFull;
-    public bool wheatIdle;
+
     public Animator wheatAnimator;
 
-    void Update()
+
+public override void UpdateRepresentation(Season currentSeason)
     {
-        if (wheatGrowLittle)
-        {
-            wheatAnimator.Play("WheatGrowLittle");
-        }
+        base.UpdateRepresentation(currentSeason);
+        var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
+        Debug.Log(currentSeason + ", " + lastSeason);
+        switch(currentSeason){
+            case Season.SPRING:
+            if(lastSeason == Season.WINTER){
+                GrowLittle();
+                }else{
+     
+                }
+                break;
 
-        else if(wheatGrowFull)
-        {
-            wheatAnimator.Play("WheatGrowFull");
-        }
-        else if (wheatGrowBackLittle)
-        {
-            wheatAnimator.Play("WheatGrowBackLittle");
 
-        }
-        else if (wheatGrowBackFull)
-        {
-            wheatAnimator.Play("WheatGrowFullBack");
+            case Season.SUMMER:
+             if(lastSeason == Season.SPRING){
+                    GrowFull();
+                }else{
+                     return;
+                }
+                break;
+            
+            case Season.AUTUMN:
+                if(lastSeason == Season.SUMMER){
+                    GrowBackLittle();
+                }else{
+                return;
+                }
+                break;
 
-        }
-        else if (wheatIdle)
-        {
-            wheatAnimator.Play("WheatIdle");
+
+            case Season.WINTER:
+                if(lastSeason == Season.AUTUMN){
+                   GrowBackFull();
+                }else{
+                    return;
+                }
+                break;
+
         }
     }
+
+
+    private void GrowLittle() {
+         wheatAnimator.Play("WheatGrowLittle");
+    }
+
+    private void GrowFull() {
+         wheatAnimator.Play("WheatGrowFull");
+    }
+
+    private void GrowBackLittle() {
+         wheatAnimator.Play("WheatGrowBackLittle");
+    }
+
+        private void GrowBackFull() {
+          wheatAnimator.Play("WheatGrowFullBack");
+    }
+
+    private void Idle() {
+         wheatAnimator.Play("WheatIdle");
+    }
+
 }

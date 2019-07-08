@@ -5,7 +5,7 @@ using UnityEngine;
 public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
 {
     [SerializeField]
-    private SunflowerAnimationScript animationScript;
+    private Animator sunflowerAnim;
 
     [SerializeField]
     private Color[] blossomColors;
@@ -20,10 +20,10 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
         switch(currentSeason){
             case Season.SPRING:
                 if(lastSeason == Season.WINTER){
-                    animationScript.sunflowerAnim.Play("Grow");
+                    sunflowerAnim.Play("Grow");
                     LerpColor(blossomColors[0]);
                 }else{
-                    animationScript.sunflowerAnim.Play("Bloom_Backwards");
+                    sunflowerAnim.Play("Bloom_Backwards");
                     LerpColor(blossomColors[0]);
                 }
                 break;
@@ -31,30 +31,30 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
             case Season.SUMMER:
             
                 if(lastSeason == Season.SPRING){
-                    animationScript.sunflowerAnim.Play("Bloom");
+                    sunflowerAnim.Play("Bloom");
                     LerpColor(blossomColors[1]);
                 }else{
-                    animationScript.sunflowerAnim.Play("Wilt_Backwards");
+                    sunflowerAnim.Play("Wilt_Backwards");
                     LerpColor(blossomColors[1]);
                 }
                 break;
 
             case Season.AUTUMN:           
                 if(lastSeason == Season.SUMMER){
-                    animationScript.sunflowerAnim.Play("Wilt");
+                    sunflowerAnim.Play("Wilt");
                     LerpColor(blossomColors[2]);
                 }else{
-                    animationScript.sunflowerAnim.Play("Falling_Backwards");
+                    sunflowerAnim.Play("Falling_Backwards");
                     LerpColor(blossomColors[2]);
                 }
                 break;
 
             case Season.WINTER:
                 if(lastSeason == Season.AUTUMN){
-                    animationScript.sunflowerAnim.Play("Falling");
+                    sunflowerAnim.Play("Falling");
                     LerpColor(blossomColors[2]);
                 }else{
-                    animationScript.sunflowerAnim.Play("Grow_Backwards");
+                    sunflowerAnim.Play("Grow_Backwards");
                     LerpColor(blossomColors[2]);
                 }
                 break;
@@ -66,41 +66,4 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
             blossom.StartLerp(target);
         }
     }
-
-    private void SeasonSwitch(){
-        
-    }
-
-    private void Grow(){
-        HandleAnimation(new bool[]{true, false, false, false, false});
-    }
-
-    private void Bloom(){
-        HandleAnimation(new bool[]{false, true, false, false, false});
-    }
-
-    // private void Close(){
-    //     HandleAnimation(new bool[]{false, false, false, true});
-    // }
-
-    private void Wither(){
-        HandleAnimation(new bool[]{false, false, true, false, false});
-    }
-
-    private void Die(){
-        HandleAnimation(new bool[]{false, false, false, true, false});
-    }
-
-    private void Idle(){
-        HandleAnimation(new bool[]{false, false, false, false, true});
-    }
-
-    private void HandleAnimation(params bool[] states){
-        animationScript.sunflowerIdleToGrow = states[0];
-        animationScript.sunflowerGrowToBloom = states[1];
-        animationScript.sunflowerBloomToWilt = states[2];
-        animationScript.sunflowerWiltToFall = states[3];
-        animationScript.sunflowerIdle = states[4];
-    }
-
 }

@@ -26,9 +26,6 @@ public class SunflowerAnimationScript : MonoBehaviour
         //Sonnenblume wächst
         if (sunflowerIdleToGrow)
         {
-            sunflowerAnim.SetBool("Grow", true);
-            sunflowerAnim.SetBool("Idle", false);
-            sunflowerAnim.SetBool("Falling", false);
             foreach (GameObject sun in sunflowerPartsGreenToColor)
             {
                 sun.GetComponent<Renderer>().material.SetFloat("_Blend", 0);
@@ -63,7 +60,6 @@ public class SunflowerAnimationScript : MonoBehaviour
                 {
                     sun.GetComponent<Renderer>().material.SetFloat("_Blend", percentComplete);
                 }
-                sunflowerAnim.SetBool("Bloom", true);
             }
            
         }
@@ -119,10 +115,6 @@ public class SunflowerAnimationScript : MonoBehaviour
         //Nichts, Sonnenblume wurde hier eingefplanzt? 
         if (sunflowerIdle)
         {
-            sunflowerAnim.SetBool("Idle", true);
-            sunflowerAnim.SetBool("Grow", false);
-            sunflowerAnim.SetBool("Bloom", false);
-            sunflowerAnim.SetBool("Wilt", false);
 
             if (currentZ > 4)
             {
@@ -138,7 +130,6 @@ public class SunflowerAnimationScript : MonoBehaviour
                 {
                     sun.GetComponent<Renderer>().material.SetFloat("_Blend", percentComplete);
                 }
-                sunflowerAnim.SetBool("Bloom", false);
             }
 
         }

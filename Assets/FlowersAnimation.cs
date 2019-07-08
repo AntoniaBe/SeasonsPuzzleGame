@@ -2,91 +2,139 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlowersAnimation : MonoBehaviour
+public class FlowersAnimation : SeasonObjectBehaviour
 {
-
-    public bool flowersIdle;
-    public bool flowersGrow;
-    public bool flowersBloom;
-    public bool flowersGrowBack;
-
     public Animator [] redFlowers;
     public Animator[] purpleFlowers;
     public Animator[] idkFlowers;
-    void Update()
+
+    public override void UpdateRepresentation(Season currentSeason)
     {
-        //Grow
-        if (flowersGrow)
-        {
-            foreach(Animator redFlower in redFlowers)
-            {
-                redFlower.Play("FlowersGrow");
-            }
+        base.UpdateRepresentation(currentSeason);
+        var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
+        Debug.Log(currentSeason + ", " + lastSeason);
+        switch(currentSeason){
+            case Season.SPRING:
+            if(lastSeason == Season.WINTER){
+                Grow();
+                }else{
+                GrowBack(); 
+                }
+                break;
 
-            foreach (Animator purpleFlower in purpleFlowers)
-            {
-                purpleFlower.Play("PurpleFlowerGrowLittle");
-            }
 
-            foreach (Animator idkFlower in idkFlowers)
-            {
-                idkFlower.Play("Grow");
-            }
+            case Season.SUMMER:
+             if(lastSeason == Season.SPRING){
+                    Bloom();
+                }else{
+                     return;
+                }
+                break;
+            
+            case Season.AUTUMN:
+                if(lastSeason == Season.SUMMER){
+                    Wilt();
+                }else{
+                return;
+                }
+                break;
+
+
+            case Season.WINTER:
+                if(lastSeason == Season.AUTUMN){
+                   Idle();
+                }else{
+                    return;
+                }
+                break;
 
         }
-        //Bloom
-        else if(flowersBloom) {
+    }
 
-            foreach (Animator redFlower in redFlowers)
-            {
-                redFlower.Play("FlowersBloom");
-            }
-
-            foreach (Animator purpleFlower in purpleFlowers)
-            {
-                purpleFlower.Play("PurpleFlowerGrowFull");
-            }
-
-            foreach (Animator idkFlower in idkFlowers)
-            {
-                idkFlower.Play("Bloom");
-            }
-        }
-        //Wilt
-        else if(flowersGrowBack)
+    private void Grow(){
+        foreach(Animator redFlower in redFlowers)
         {
-            foreach (Animator redFlower in redFlowers)
-            {
-                redFlower.Play("GrowBack");
-            }
-
-            foreach (Animator purpleFlower in purpleFlowers)
-            {
-                purpleFlower.Play("PurpleFlowerGrowBackFull");
-            }
-
-            foreach (Animator idkFlower in idkFlowers)
-            {
-                idkFlower.Play("GrowBack");
-            }
+            redFlower.Play("FlowersGrow");
         }
-        //Idle
-        else if (flowersIdle)
+
+        foreach (Animator purpleFlower in purpleFlowers)
         {
-            foreach (Animator redFlower in redFlowers)
-            {
-                redFlower.Play("FlowersIdle");
-            }
+            purpleFlower.Play("PurpleFlowerGrowLittle");
+        }
 
-            foreach (Animator purpleFlower in purpleFlowers)
-            {
-                purpleFlower.Play("PurpleFlowerIdle");
-            }
+        foreach (Animator idkFlower in idkFlowers)
+        {
+            idkFlower.Play("Grow");
+        }
 
-            foreach (Animator idkFlower in idkFlowers)
-            {
-                idkFlower.Play("Idle");
-            }
+    }
+
+    private void GrowBack() {
+        foreach(Animator redFlower in redFlowers)
+        {
+            redFlower.Play("FlowersGrow_-1");
+        }
+
+        foreach (Animator purpleFlower in purpleFlowers)
+        {
+            purpleFlower.Play("PurpleFlowerGrowLittle_-1");
+        }
+
+        foreach (Animator idkFlower in idkFlowers)
+        {
+            idkFlower.Play("Grow_-1");
+        }
+    }
+
+    private void Bloom(){
+        foreach (Animator redFlower in redFlowers)
+        {
+            redFlower.Play("FlowersBloom");
+        }
+
+        foreach (Animator purpleFlower in purpleFlowers)
+        {
+            purpleFlower.Play("PurpleFlowerGrowFull");
+        }
+
+        foreach (Animator idkFlower in idkFlowers)
+        {
+            idkFlower.Play("Bloom");
+        }
+
+    }
+
+    private void Wilt(){
+        foreach (Animator redFlower in redFlowers)
+        {
+            redFlower.Play("GrowBack");
+        }
+
+        foreach (Animator purpleFlower in purpleFlowers)
+        {
+            purpleFlower.Play("PurpleFlowerGrowBackFull");
+        }
+
+        foreach (Animator idkFlower in idkFlowers)
+        {
+            idkFlower.Play("GrowBack");
+        }
+    }
+
+    private void Idle(){
+        foreach (Animator redFlower in redFlowers)
+        {
+            redFlower.Play("FlowersIdle");
+        }
+
+        foreach (Animator purpleFlower in purpleFlowers)
+        {
+            purpleFlower.Play("PurpleFlowerIdle");
+        }
+
+        foreach (Animator idkFlower in idkFlowers)
+        {
+            idkFlower.Play("Idle");
         }
     }
 }

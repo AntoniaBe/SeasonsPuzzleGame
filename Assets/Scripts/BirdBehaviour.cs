@@ -101,9 +101,6 @@ public class BirdBehaviour : MonoBehaviour
 
     public void PickUp(Transform target)
     {
-        if(target.GetComponent<Rigidbody>() != null)
-            Destroy(target.GetComponent<Rigidbody>());
-
         if(claws.Find(target.name) == target)
             return;
 

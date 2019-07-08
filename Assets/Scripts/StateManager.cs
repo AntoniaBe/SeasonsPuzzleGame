@@ -67,6 +67,11 @@ public class StateManager : Singleton<StateManager>
         }
     }
 
+    private void ChestOpen()
+    {
+        
+    }
+
     private void OnSeasonUpdate(Season season)
     {
         if(!summerStone.IsTaken)
