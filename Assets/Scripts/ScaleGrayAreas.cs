@@ -44,7 +44,7 @@ public class ScaleGrayAreas : MonoBehaviour
         currentTime += Time.deltaTime;
         foreach ( Material m in allMaterials[ sectorToChange ] )
         {
-            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 0, 50, currentTime / timeToLerp ) );
+            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 0, 400, currentTime / timeToLerp ) );
         }
         if ( (currentTime / timeToLerp) >= 1 )
         {
@@ -78,6 +78,17 @@ public class ScaleGrayAreas : MonoBehaviour
 
         for ( int s = 0; s < sektoren.Length; s++ )
         {
+            string newMaterialname = "Sektor" + s + "/PolygonNature_MountainSkybox (Instance)";
+            Material newMaterial = (Material) Resources.Load( newMaterialname, typeof( Material ) );
+
+            Debug.Log( newMaterial );
+            List<Material> tempList = new List<Material>();
+            foreach ( Material m in allMaterials[s] )
+            {
+                tempList.Add( m );
+            }
+            tempList.Add( newMaterial );
+            allMaterials[ s ] = tempList.ToArray();
             changeToSektorMaterial( sektoren[ s ].transform, s );
         }
 

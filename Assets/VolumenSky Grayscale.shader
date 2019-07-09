@@ -1,4 +1,4 @@
-﻿Shader "Custom/VolumenGrayscale"
+﻿Shader "Custom/VolumenSkyGrayscale"
 {
     Properties
     {
@@ -7,6 +7,7 @@
 		_Glossiness("Smoothness", Range(0,1)) = 0.5
 		_Metallic("Metallic", Range(0,1)) = 0.0
 
+		_Transparency("Transparency", Range(0.0,1)) = 0.25
 
 
 
@@ -16,12 +17,15 @@
     }
     SubShader
     {
-			Tags{ "RenderType" = "Opaque" }
+			Tags{ "Queue" = "Transparent" "RenderType" = "Transparent"  "PerformanceChecks" = "False" }
+			LOD 300
 
+			ZWrite OFF
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
+        #pragma surface surf Standard fullforwardshadows alpha : fade
+		#pragma surface surf NoLighting alpha
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -43,6 +47,7 @@
 		half _Radius;
 		half _Softness;
 
+		float _Transparency;
 
 
 
@@ -57,6 +62,8 @@
         {
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+
+			c.a = tex2D(_MainTex, IN.uv_MainTex).a;
 
 			//Grayscale
 			half grayscale = half((c.r + c.g + c.b)*0.111);

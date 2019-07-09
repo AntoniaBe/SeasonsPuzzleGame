@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PolygonNature_MountainSkybox
+  m_Name: PolygonNature_MountainSkybox (Instance) 2
   m_Shader: {fileID: 4800000, guid: ce9d4bba5d6a47141932b67cb60e6e2d, type: 3}
   m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _NORMALMAP
   m_LightmapFlags: 4

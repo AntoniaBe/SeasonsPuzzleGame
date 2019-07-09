@@ -27,14 +27,22 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     [SerializeField]
     private Texture[] skyBoxTextures = null;
 
+    public  BackgroundGrayManager backgroundTextureManager;
+
     [SerializeField]
     private Texture[] environmentTextures = null;
+
+    private void Start()
+    {
+       backgroundTextureManager = FindObjectOfType<BackgroundGrayManager>();
+    }
 
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);
         giveAllNatureMaterialsNewSeasonTexture( currentSeason );
         skyBox.material.mainTexture = skyBoxTextures[(int)currentSeason];
+        backgroundTextureManager.changeTextureOnBackground( skyBoxTextures[ (int) currentSeason ] );
 
         var isWinter = currentSeason == Season.WINTER;
         snow.SetActive(isWinter);
