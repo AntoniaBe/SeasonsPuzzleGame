@@ -90,14 +90,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976735639839414}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ff4c89588fbb92244b203d30cb8652fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   backgroundSektoren:
-  - {fileID: 4634886083773347918}
   - {fileID: 9165271372367125171}
+  - {fileID: 4634886083773347918}
   - {fileID: 5360762601463401211}
   - {fileID: 756984221843526660}
   - {fileID: 8863889780662849221}

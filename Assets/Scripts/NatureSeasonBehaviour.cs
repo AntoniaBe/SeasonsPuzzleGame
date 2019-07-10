@@ -27,15 +27,9 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     [SerializeField]
     private Texture[] skyBoxTextures = null;
 
-    public  BackgroundGrayManager backgroundTextureManager;
-
     [SerializeField]
     private Texture[] environmentTextures = null;
 
-    private void Start()
-    {
-       backgroundTextureManager = FindObjectOfType<BackgroundGrayManager>();
-    }
 
     public override void UpdateRepresentation(Season currentSeason)
     {
