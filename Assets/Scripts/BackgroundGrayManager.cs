@@ -21,6 +21,7 @@ public class BackgroundGrayManager : MonoBehaviour
         {
             Material[ ] ms = backgroundSektoren[ i ].gameObject.GetComponent<Renderer>().materials;
 
+
             if ( ms != null )
             {
                 List<Material> newMaterials = new List<Material>();
@@ -39,9 +40,10 @@ public class BackgroundGrayManager : MonoBehaviour
 
     public void changeTextureOnBackground( Texture txt ) {
         foreach ( GameObject sektor in backgroundSektoren )
-        {
+       {
             sektor.GetComponent<Renderer>().material.mainTexture = txt;
         }
+
 
     }
 
