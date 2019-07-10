@@ -22,7 +22,7 @@ Shader "SyntyStudios/Trees"
 
 		//GrayScale
 		_Position("World Position", Vector) = (0,0,0,0)
-		_Radius("Radius",Range(0,20)) = 0
+		_Radius("Radius",Range(0,400)) = 0
 		_Softness("Sphere Softness", Range(0,100)) = 0
 
 	}
