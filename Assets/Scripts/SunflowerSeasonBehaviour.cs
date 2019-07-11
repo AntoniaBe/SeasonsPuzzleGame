@@ -13,6 +13,12 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
     [SerializeField]
     private LerpColor[] blossoms;
 
+    [SerializeField]
+    private Color[] coreColors;
+
+    [SerializeField]
+    private LerpColor core;
+
     public override void UpdateRepresentation(Season currentSeason){
         base.UpdateRepresentation(currentSeason);
         var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
@@ -22,9 +28,11 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
                 if(lastSeason == Season.WINTER){
                     sunflowerAnim.Play("Grow");
                     LerpColor(blossomColors[0]);
+                    core.StartLerp(coreColors[0]);
                 }else{
                     sunflowerAnim.Play("Bloom_Backwards");
                     LerpColor(blossomColors[0]);
+                    core.StartLerp(coreColors[0]);
                 }
                 break;
 
@@ -33,9 +41,11 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
                 if(lastSeason == Season.SPRING){
                     sunflowerAnim.Play("Bloom");
                     LerpColor(blossomColors[1]);
+                    core.StartLerp(coreColors[1]);
                 }else{
                     sunflowerAnim.Play("Wilt_Backwards");
                     LerpColor(blossomColors[1]);
+                    core.StartLerp(coreColors[1]);
                 }
                 break;
 
