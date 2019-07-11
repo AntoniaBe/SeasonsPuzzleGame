@@ -19,6 +19,8 @@ public class BoxBehavior : MonoBehaviour
         if(col.gameObject.tag == "Key")
         {
             gameObject.transform.Find("SM_Prop_Chest_Wood_Lid").GetComponent<Animator>().Play("Open");
+            StateManager stateManager = StateManager.Instance;
+            stateManager.ChestOpen();
         }
     }
 }

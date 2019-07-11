@@ -66,9 +66,9 @@ public class StateManager : Singleton<StateManager>
         }
     }
 
-    private void ChestOpen()
+    public void ChestOpen()
     {
-        
+        grayManager.enableSector(2);
     }
 
     private void OnSeasonUpdate(Season season)
