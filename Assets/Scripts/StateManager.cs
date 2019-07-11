@@ -21,6 +21,8 @@ public class StateManager : Singleton<StateManager>
     private bool tutorialDone = false;
     [SerializeField] ScaleGrayAreas grayManager;
 
+    private int sectorsEnabled = 0;
+
     void Awake()
     {
         seasonsManager = SeasonsManager.Instance;
@@ -46,10 +48,22 @@ public class StateManager : Singleton<StateManager>
         seasonsManager.CurrentSeason = Season.WINTER;
     }
 
+#if UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.KeypadPlus))
+        {
+            grayManager.enableSector(sectorsEnabled);
+            sectorsEnabled++;
+        }
+    }
+
+#endif
+
     private void StoneTaken(GrabbableSeasonStone stone)
     {
         if(stone.season == Season.WINTER){
-            grayManager.enableSector( 0 );
+            grayManager.enableSector(0);
             springStone.gameObject.SetActive(true);
             summerStone.gameObject.SetActive(true);
         }

@@ -30,6 +30,9 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
     [SerializeField]
     private Texture[] environmentTextures = null;
 
+    [SerializeField]
+    private GameObject springParticles = null;
+
 
     public override void UpdateRepresentation(Season currentSeason)
     {
@@ -45,6 +48,7 @@ public class NatureSeasonBehaviour : SeasonObjectBehaviour
         }
 
         rain.SetActive(currentSeason == Season.AUTUMN);
+        springParticles.SetActive(currentSeason == Season.SPRING);
 
     }
 
