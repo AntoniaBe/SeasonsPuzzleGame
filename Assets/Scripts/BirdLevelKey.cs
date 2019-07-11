@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BirdKeyFinder : MonoBehaviour
+public class BirdLevelKey : MonoBehaviour
 {
     [SerializeField]
     private Transform key;

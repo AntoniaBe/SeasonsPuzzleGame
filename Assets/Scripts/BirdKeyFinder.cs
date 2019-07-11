@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BridLevelKey : MonoBehaviour
+public class BirdKeyFinder : MonoBehaviour
 {
     [SerializeField]
     private Transform key;
@@ -11,18 +11,21 @@ public class BridLevelKey : MonoBehaviour
 
     private void Start(){
         behaviour = GetComponent<BirdBehaviour>();
+        behaviour.ChangeTarget(behaviour.GetSouthPosition().position);
     }
 
     private void Update(){
         if(Camera.main == null)
             return;
 
-        if(inFOV(key.position)){
+        StateManager stateManager = StateManager.Instance;
+        // pick up key only when tutorial is done and player looks towards the key
+        if(inFOV(key.position) && stateManager.TutorialDone()){
             behaviour.PickUp(key);
         }
-        else{
-            behaviour.GoIdle();
-        }
+        // else{
+        //     behaviour.GoIdle();
+        // }
     }
 
     private bool inFOV(Vector3 pos){

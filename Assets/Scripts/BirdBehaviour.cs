@@ -43,18 +43,23 @@ public class BirdBehaviour : MonoBehaviour
     private void Start(){
         animator = GetComponent<Animator>();
         animator.SetBool("Flying", true);
+        // start in winter -> fly to south
+        ChangeTarget(south.position);
         isPecking = false;
     }
 
     private void Update()
     {
+        // pecking seeds
         if (isPecking)
             return;
 
+        // ???
         if(targetTransform != null && target != south.position)
             target = targetTransform.position;
 
-        if(Vector3.Distance(transform.position, target) > minDist)
+        // continue flying towards target
+        if(Vector3.Distance(transform.position, target) > minDist || target == south.position)
         {
             var targetDir = target - transform.position;
             var newDir = Vector3.RotateTowards(transform.forward, targetDir, steeringSpeed * Time.deltaTime, 0.0f);
@@ -68,6 +73,7 @@ public class BirdBehaviour : MonoBehaviour
         else
         {
             if(targetTransform != null){
+                // fly towards seed
                 if (targetTransform.GetComponent<Seed>() != null)
                 {
                     Peck();
@@ -76,9 +82,11 @@ public class BirdBehaviour : MonoBehaviour
                     return;
                 }
 
+                // if key grabbed ???
                 if(targetTransform.CompareTag("Key"))
                     Destroy(GetComponent<BirdKeyFinder>());
 
+                // ???
                 if (targetTransform.GetComponent<Rigidbody>() != null)
                 {
                     Destroy(targetTransform.GetComponent<Rigidbody>());
@@ -146,5 +154,9 @@ public class BirdBehaviour : MonoBehaviour
     {
         targetTransform = null;
         ChangeTarget(gatheringPosition.position + new Vector3(Random.Range(0.25f, 2f), 0, Random.Range(0.25f, 2f)));
+    }
+
+    public Transform GetSouthPosition(){
+        return south.transform;
     }
 }

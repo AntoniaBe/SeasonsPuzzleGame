@@ -18,7 +18,7 @@ public class StateManager : Singleton<StateManager>
     public GrabbableSeasonStone winterStone;
     private GameObject bird;
     public UnityEvent<GrabbableSeasonStone> OnStoneTaken;
-    private bool tutorialDone;
+    private bool tutorialDone = false;
     [SerializeField] ScaleGrayAreas grayManager;
 
     void Awake()
@@ -26,7 +26,6 @@ public class StateManager : Singleton<StateManager>
         seasonsManager = SeasonsManager.Instance;
         OnStoneTaken = new GrabbableEvent();
         OnStoneTaken.AddListener(StoneTaken);
-
         seasonsManager.UpdateSeasonEvent.AddListener(OnSeasonUpdate);
     }
 
@@ -92,5 +91,9 @@ public class StateManager : Singleton<StateManager>
         //For test only
         //if(season == Season.SPRING)
             //bird.GetComponent<BirdBehaviour>().PickUp(key.transform);
+    }
+
+    public bool TutorialDone(){
+        return tutorialDone;
     }
 }
