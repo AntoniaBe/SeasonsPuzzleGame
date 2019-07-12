@@ -4,9 +4,27 @@ using UnityEngine;
 
 public class FlowersAnimation : SeasonObjectBehaviour
 {
-    public Animator [] redFlowers;
-    public Animator[] purpleFlowers;
-    public Animator[] idkFlowers;
+    public List<Animator> redFlowers;
+    public List<Animator> purpleFlowers;
+    public List<Animator> idkFlowers;
+
+    public override void Awake(){
+        base.Awake();
+        redFlowers = new List<Animator>();
+        foreach(var go in GameObject.FindGameObjectsWithTag("RedFlower")){
+            redFlowers.Add(go.GetComponent<Animator>());
+        }
+
+        purpleFlowers = new List<Animator>();
+        foreach(var go in GameObject.FindGameObjectsWithTag("PurpleFlower")){
+            purpleFlowers.Add(go.GetComponent<Animator>());
+        }
+
+        idkFlowers = new List<Animator>();
+        foreach(var go in GameObject.FindGameObjectsWithTag("IdkFlower")){
+            idkFlowers.Add(go.GetComponent<Animator>());
+        }
+    }
 
     public override void UpdateRepresentation(Season currentSeason)
     {

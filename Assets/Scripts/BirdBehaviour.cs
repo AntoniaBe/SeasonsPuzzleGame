@@ -15,6 +15,9 @@ public class BirdBehaviour : MonoBehaviour
     private float minDist;
 
     [SerializeField]
+    private float breakForce;
+
+    [SerializeField]
     private GameObject sdkSetup;
 
     [SerializeField]
@@ -33,6 +36,8 @@ public class BirdBehaviour : MonoBehaviour
     [SerializeField]
     private Transform gatheringPosition;
     // private float startPeckingTime;
+ 
+
     private bool isPecking;
 
     void Awake()
@@ -54,52 +59,83 @@ public class BirdBehaviour : MonoBehaviour
         if (isPecking)
             return;
 
-        // ???
+        // abort chasing targetTransform, if it is null or south
         if(targetTransform != null && target != south.position)
             target = targetTransform.position;
 
         // continue flying towards target
-        if(Vector3.Distance(transform.position, target) > minDist || target == south.position)
+        var dist = Vector3.Distance(transform.position, target);
+        if(dist > minDist || target == south.position)
         {
-            var targetDir = target - transform.position;
-            var newDir = Vector3.RotateTowards(transform.forward, targetDir, steeringSpeed * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(newDir);
 
+            Debug.DrawRay(transform.position, transform.forward, Color.green);
+            RaycastHit hit;
+            var targetDir = target - transform.position;
+
+            if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
+            {
+                if (hit.collider.CompareTag("Player"))
+                {
+                    targetDir = Vector3.up;
+                }
+            }
+
+            var targetRotation = Vector3.RotateTowards(transform.forward, targetDir, steeringSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(targetRotation);
+                
+            // break at min distance
+            dist = dist > 1 ? 1 : dist;
+            var breakFactor = targetTransform == null ? 1 : dist * breakForce;
+
+            // fly forwards
             var pos = transform.position;
-            pos += transform.forward * speed * Time.deltaTime;
+            pos += transform.forward * speed * Time.deltaTime * breakFactor;
+            pos.y = pos.y <= 0.15f ? 0.15f : pos.y; 
             transform.position = pos;
+
             
         }
-        else
+        else // at this point, target is reached
         {
             if(targetTransform != null){
-                // fly towards seed
+                // stop flying. Start pecking animation in future
                 if (targetTransform.GetComponent<Seed>() != null)
                 {
                     Peck();
+                    // drop key if grabbed
                     if(claws.childCount > 0)
                         Drop();
                     return;
                 }
 
-                // if key grabbed ???
-                if(targetTransform.CompareTag("Key"))
-                    Destroy(GetComponent<BirdKeyFinder>());
-
-                // ???
+                // destroy the targets rigidbody to prevent it from falling down
                 if (targetTransform.GetComponent<Rigidbody>() != null)
                 {
                     Destroy(targetTransform.GetComponent<Rigidbody>());
                 }
 
-                targetTransform.position = claws.position;
-                targetTransform.parent = claws;
-                targetTransform = null;
+                // if target was key, destroy the key finder component
+                if(targetTransform.CompareTag("Key")){
+                    Destroy(GetComponent<BirdKeyFinder>());
+                    // snap target transform to the claws
+                    targetTransform.position = claws.position;
+                    targetTransform.parent = claws;
+                    targetTransform = null;
+                }
+                // start idle routine
                 GoIdle();
             }else{
+                // start idle routine
                 GoIdle();
             }
         }
+    }
+
+    private Vector3 Steer(Vector3 target, float maxVelocity){
+        var desiredVelocity = target - transform.position;
+        var distance = desiredVelocity.magnitude;
+        desiredVelocity = Vector3.Normalize(desiredVelocity) * maxVelocity;
+        return desiredVelocity - transform.forward;
     }
 
     public void ChangeTarget(Vector3 target)
@@ -107,7 +143,7 @@ public class BirdBehaviour : MonoBehaviour
         this.target = target;
     }
 
-    public void PickUp(Transform target)
+    public void SetPickUpTarget(Transform target)
     {
         if(claws.Find(target.name) == target)
             return;

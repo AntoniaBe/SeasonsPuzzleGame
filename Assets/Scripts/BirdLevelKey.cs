@@ -18,7 +18,7 @@ public class BirdLevelKey : MonoBehaviour
             return;
 
         if(inFOV(key.position)){
-            behaviour.PickUp(key);
+            behaviour.SetPickUpTarget(key);
         }
         else{
             behaviour.GoIdle();

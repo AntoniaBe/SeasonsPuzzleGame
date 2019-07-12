@@ -140,20 +140,20 @@ public class SeasonController : MonoBehaviour
 
         glow.transform.localScale = seasonStoneGameObject.transform.GetChild(0).transform.localScale * 0.5f;
 
-        GameObject central = glow.transform.Find("central").gameObject;
-        GameObject dust = glow.transform.Find("dust").gameObject;
-        GameObject energy = glow.transform.Find("energy").gameObject;
+        // GameObject central = glow.transform.Find("central").gameObject;
+        // GameObject dust = glow.transform.Find("dust").gameObject;
+        // GameObject energy = glow.transform.Find("energy").gameObject;
         GameObject energy_central = glow.transform.Find("energy_central").gameObject;
-        GameObject smoke = glow.transform.Find("smoke").gameObject;
+        // GameObject smoke = glow.transform.Find("smoke").gameObject;
 
-        central.GetComponent<ParticleSystem>().startSize = 2;
-        dust.GetComponent<ParticleSystem>().startSize = 0.05f;
-        energy.GetComponent<ParticleSystem>().startSize = 3;
+        // central.GetComponent<ParticleSystem>().startSize = 2;
+        // dust.GetComponent<ParticleSystem>().startSize = 0.05f;
+        // energy.GetComponent<ParticleSystem>().startSize = 3;
         energy_central.GetComponent<ParticleSystem>().startSize = 2;
-        smoke.GetComponent<ParticleSystem>().startSize = 0.02f;
+        // smoke.GetComponent<ParticleSystem>().startSize = 0.02f;
 
-        central.GetComponent<ParticleSystem>().startLifetime = 2;
-        dust.GetComponent<ParticleSystem>().startLifetime = 0.3f;
-        smoke.GetComponent<ParticleSystem>().startLifetime = 0.7f;
+        // central.GetComponent<ParticleSystem>().startLifetime = 2;
+        // dust.GetComponent<ParticleSystem>().startLifetime = 0.3f;
+        // smoke.GetComponent<ParticleSystem>().startLifetime = 0.7f;
     }
 }

@@ -10,17 +10,18 @@ public class Seed : MonoBehaviour
 
     void Start()
     {
-        GetComponent<VRTK_InteractableObject>().InteractableObjectTouched += SeedTouched;
+        GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += SeedGrabbed;
         birds = FindObjectsOfType<BirdBehaviour>();
     }
 
-    private void SeedTouched(object sender, InteractableObjectEventArgs e)
+    private void SeedGrabbed(object sender, InteractableObjectEventArgs e)
     {
         isTaken = true;
+        GetComponent<SeasonSunflowerSeedBehavior>().enabled = false;
         
         foreach (var bird in birds)
         {
-            bird.PickUp(transform);
+            bird.SetPickUpTarget(transform);
         }
     }
 }

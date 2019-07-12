@@ -21,7 +21,7 @@ public class BirdKeyFinder : MonoBehaviour
         StateManager stateManager = StateManager.Instance;
         // pick up key only when tutorial is done and player looks towards the key
         if(inFOV(key.position) && stateManager.TutorialDone()){
-            behaviour.PickUp(key);
+            behaviour.SetPickUpTarget(key);
         }
         // else{
         //     behaviour.GoIdle();

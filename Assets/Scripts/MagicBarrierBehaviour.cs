@@ -21,6 +21,10 @@ public class MagicBarrierBehaviour : MonoBehaviour
 
     private void Update()
     {
+        if(Camera.main == null)
+            return;
+
+        player = Camera.main.transform;
         mainColor.a = CustomClamp(
             minDist / Vector2.Distance(new Vector2(player.position.x, player.position.z), 
                 new Vector2(transform.position.x, transform.position.z)), 

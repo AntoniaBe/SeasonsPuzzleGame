@@ -19,7 +19,9 @@ public class StateManager : Singleton<StateManager>
     private GameObject bird;
     public UnityEvent<GrabbableSeasonStone> OnStoneTaken;
     private bool tutorialDone = false;
-    [SerializeField] ScaleGrayAreas grayManager;
+    
+    [SerializeField] 
+    ScaleGrayAreas grayManager;
 
     private int sectorsEnabled = 0;
 
