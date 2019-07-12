@@ -30,6 +30,7 @@ public class WaterSeasonBehaviour : SeasonObjectBehaviour
                 waterMaterial.SetColor("_WaterShallowColor", iceColor);
                 waterMaterial.SetFloat("_WaterScale", scaleWinter);
                 waterMaterial.SetFloat("_WaterSpeed", 0);
+                waterMaterial.SetFloat("_WaterDepth", 0);
             }
         }
         else
@@ -44,6 +45,7 @@ public class WaterSeasonBehaviour : SeasonObjectBehaviour
             waterMaterial.SetColor("_WaterShallowColor", normalColor);
             waterMaterial.SetFloat("_WaterScale", scaleNormal);
             waterMaterial.SetFloat("_WaterSpeed", waterSpeed);
+            waterMaterial.SetFloat("_WaterDepth", 0.9f);
         }
     }
 
