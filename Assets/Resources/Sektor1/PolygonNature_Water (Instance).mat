@@ -101,7 +101,7 @@ Material:
     - _SrcBlend: 1
     - _Transparency: 0.490779
     - _UVSec: 0
-    - _WaterDepth: 0.09
+    - _WaterDepth: 0.9
     - _WaterFalloff: 2
     - _WaterOpacity: 0.8
     - _WaterReflection: 1

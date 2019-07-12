@@ -37,6 +37,7 @@ public class BirdBehaviour : MonoBehaviour
     private Transform gatheringPosition;
     // private float startPeckingTime;
  
+    private float groundLevelOffset = 0.3f;
 
     private bool isPecking;
 
@@ -62,6 +63,8 @@ public class BirdBehaviour : MonoBehaviour
         // abort chasing targetTransform, if it is null or south
         if(targetTransform != null && target != south.position)
             target = targetTransform.position;
+
+        target += new Vector3(Random.Range(-0.25f, 0.25f), 0, Random.Range(-0.25f, 0.25f));
 
         // continue flying towards target
         var dist = Vector3.Distance(transform.position, target);
@@ -90,10 +93,8 @@ public class BirdBehaviour : MonoBehaviour
             // fly forwards
             var pos = transform.position;
             pos += transform.forward * speed * Time.deltaTime * breakFactor;
-            pos.y = pos.y <= 0.15f ? 0.15f : pos.y; 
+            pos.y = pos.y <= groundLevelOffset ? groundLevelOffset : pos.y; 
             transform.position = pos;
-
-            
         }
         else // at this point, target is reached
         {
