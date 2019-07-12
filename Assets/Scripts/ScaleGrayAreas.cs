@@ -68,6 +68,16 @@ public class ScaleGrayAreas : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        centerMaterial = Resources.LoadAll<Material>("Sektor0") as Material[];
+        sector1Material = Resources.LoadAll<Material>("Sektor1") as Material[];
+        sector2Material = Resources.LoadAll<Material>("Sektor2") as Material[];
+        sector3Material = Resources.LoadAll<Material>("Sektor3") as Material[];
+        sector4Material = Resources.LoadAll<Material>("Sektor4") as Material[];
+        sector5Material = Resources.LoadAll<Material>("Sektor5") as Material[];
+        sector6Material = Resources.LoadAll<Material>("Sektor6") as Material[];
+
+
+
         allMaterials.Add( centerMaterial );
         allMaterials.Add( sector1Material );
         allMaterials.Add( sector2Material );
