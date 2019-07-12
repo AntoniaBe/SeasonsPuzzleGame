@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaterSeasonBehaviour : SeasonObjectBehaviour
 {
     [SerializeField]
-    private Material waterMaterial;
+    private Material[] waterMaterials;
 
     [SerializeField]
     private Color normalColor;
@@ -26,9 +26,11 @@ public class WaterSeasonBehaviour : SeasonObjectBehaviour
     {
         base.UpdateRepresentation(currentSeason);
         if(currentSeason == Season.WINTER){
-            waterMaterial.SetColor("_WaterShallowColor", iceColor);
-            waterMaterial.SetFloat("_WaterScale", scaleWinter);
-            waterMaterial.SetFloat("_WaterSpeed", 0);
+            foreach (Material waterMaterial in waterMaterials) {
+                waterMaterial.SetColor("_WaterShallowColor", iceColor);
+                waterMaterial.SetFloat("_WaterScale", scaleWinter);
+                waterMaterial.SetFloat("_WaterSpeed", 0);
+            }
         }
         else
         {
@@ -37,9 +39,12 @@ public class WaterSeasonBehaviour : SeasonObjectBehaviour
     }
 
     private void Reset(){
+        foreach (Material waterMaterial in waterMaterials)
+        {
             waterMaterial.SetColor("_WaterShallowColor", normalColor);
             waterMaterial.SetFloat("_WaterScale", scaleNormal);
             waterMaterial.SetFloat("_WaterSpeed", waterSpeed);
+        }
     }
 
     private void OnApplicationQuit(){
