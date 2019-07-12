@@ -5,9 +5,10 @@ using UnityEngine;
 public class BoxBehavior : MonoBehaviour
 {
     [SerializeField]
+    private bool isOpened;
 
     private void Start(){
-        
+
     }
 
     private void Update(){
@@ -21,6 +22,7 @@ public class BoxBehavior : MonoBehaviour
             gameObject.transform.Find("SM_Prop_Chest_Wood_Lid").GetComponent<Animator>().Play("Open");
             StateManager stateManager = StateManager.Instance;
             stateManager.ChestOpen();
+            isOpened = true;
         }
     }
 }

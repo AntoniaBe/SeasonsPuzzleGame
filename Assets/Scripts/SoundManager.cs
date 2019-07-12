@@ -10,11 +10,15 @@ public class SoundManager : SeasonObjectBehaviour
     public AudioClip winterClip;
     public AudioSource audioSource;
     public AudioSource riverAudioSource;
+    public AudioSource successClipAudioSource;
+    private float riverVolume;
+    private float ambienceVolume;
 
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);
         riverAudioSource.volume = 0.1f;
+        audioSource.volume = 1f;
 
         switch (currentSeason)
         {
@@ -23,6 +27,7 @@ public class SoundManager : SeasonObjectBehaviour
                 break;
             case Season.SUMMER:
                 audioSource.clip = summerClip;
+                audioSource.volume = 0.8f;
                 break;
             case Season.AUTUMN:
                 audioSource.clip = autumnClip;
@@ -34,5 +39,10 @@ public class SoundManager : SeasonObjectBehaviour
         }
 
         audioSource.Play();
+    }
+
+    public void PlaySuccessClip()
+    {
+        successClipAudioSource.Play();
     }
 }

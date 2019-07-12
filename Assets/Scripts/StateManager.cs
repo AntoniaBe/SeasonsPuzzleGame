@@ -21,6 +21,8 @@ public class StateManager : Singleton<StateManager>
     private GameObject bird;
     public UnityEvent<GrabbableSeasonStone> OnStoneTaken;
     private bool tutorialDone = false;
+    public SoundManager soundManager;
+
 
     [SerializeField] 
     ScaleGrayAreas grayManager;
@@ -86,6 +88,7 @@ public class StateManager : Singleton<StateManager>
         {
             grayManager.enableSector(1);
             tutorialDone = true;
+            soundManager.PlaySuccessClip();
         }
     }
 
