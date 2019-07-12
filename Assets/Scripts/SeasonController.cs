@@ -90,6 +90,12 @@ public class SeasonController : MonoBehaviour
             }
         }
 
+        Transform arrow = transform.Find("arrow");
+        if (arrow != null)
+        {
+            arrow.gameObject.SetActive(false);
+        }
+
         Debug.Log(SeasonsManager.Instance.CurrentSeason);
     }
 

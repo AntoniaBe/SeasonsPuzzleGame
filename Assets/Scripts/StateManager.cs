@@ -16,10 +16,12 @@ public class StateManager : Singleton<StateManager>
     public GrabbableSeasonStone summerStone;
     public GrabbableSeasonStone autumnStone;
     public GrabbableSeasonStone winterStone;
+
+    public GameObject arrow;
     private GameObject bird;
     public UnityEvent<GrabbableSeasonStone> OnStoneTaken;
     private bool tutorialDone = false;
-    
+
     [SerializeField] 
     ScaleGrayAreas grayManager;
 
@@ -39,6 +41,7 @@ public class StateManager : Singleton<StateManager>
         autumnStone.IsGrabbable = false;
         winterStone.IsGrabbable = true;
 
+        arrow.SetActive(false);
         springStone.gameObject.SetActive(false);
         summerStone.gameObject.SetActive(false);
         autumnStone.gameObject.SetActive(false);
@@ -68,6 +71,10 @@ public class StateManager : Singleton<StateManager>
             grayManager.enableSector(0);
             springStone.gameObject.SetActive(true);
             summerStone.gameObject.SetActive(true);
+        }
+
+        if(stone.season == Season.SPRING){
+            arrow.SetActive(true);
         }
 
         if(stone.season == Season.SUMMER)
