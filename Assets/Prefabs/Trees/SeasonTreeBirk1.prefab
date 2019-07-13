@@ -152,6 +152,12 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c565ec8004407544a89e542d65132d98, type: 2}
   - {fileID: 2100000, guid: e1f54bdf015ca854499e28adf35f2de1, type: 2}
   - {fileID: 2100000, guid: d3a600439af714f4280d93e74cc75853, type: 2}
+  bigWavesValues: {x: 9, y: 6, z: 0, w: 9}
+  bigSpeedValues: {x: 0.3, y: 0.6, z: 0, w: 0.3}
+  bigAmountValues: {x: 0.3, y: 0.6, z: 0, w: 0.3}
+  smallWavesValues: {x: 0.05, y: 0.3, z: 0, w: 0.05}
+  smallSpeedValues: {x: 0.001, y: 0.003, z: 0, w: 0.001}
+  smallAmountValues: {x: 0.1, y: 0.3, z: 0, w: 0.1}
 --- !u!1 &3075323533423186821
 GameObject:
   m_ObjectHideFlags: 0

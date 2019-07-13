@@ -57,7 +57,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9815abc3682332c43bb766decd901afb, type: 2}
+  - {fileID: 2100000, guid: 4564c12c70928d24c909f617b70c33c2, type: 2}
   - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -149,9 +149,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seasonMaterials:
   - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
-  - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
+  - {fileID: 2100000, guid: 2ca3777b0717ce94db536c9534eac390, type: 2}
   - {fileID: 2100000, guid: 484f68ebb25012b48b561c6a58eac81b, type: 2}
-  - {fileID: 2100000, guid: feab95a1ad51daa4caeb40403608aa12, type: 2}
+  - {fileID: 2100000, guid: 4424e8793c8a6d640a2c3bb6cd22d1ed, type: 2}
+  bigWavesValues: {x: 9, y: 6, z: 0, w: 9}
+  bigSpeedValues: {x: 0.3, y: 0.6, z: 0, w: 0.3}
+  bigAmountValues: {x: 0.3, y: 0.6, z: 0, w: 0.3}
+  smallWavesValues: {x: 0.05, y: 0.3, z: 0, w: 0.05}
+  smallSpeedValues: {x: 0.001, y: 0.003, z: 0, w: 0.001}
+  smallAmountValues: {x: 0.1, y: 0.3, z: 0, w: 0.1}
 --- !u!1 &2526084503238979976
 GameObject:
   m_ObjectHideFlags: 0
