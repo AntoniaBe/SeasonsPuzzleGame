@@ -70,6 +70,7 @@ public class StateManager : Singleton<StateManager>
     private void StoneTaken(GrabbableSeasonStone stone)
     {
         if(stone.season == Season.WINTER){
+            soundManager.PlaySuccessClip();
             grayManager.enableSector(0);
             springStone.gameObject.SetActive(true);
             summerStone.gameObject.SetActive(true);

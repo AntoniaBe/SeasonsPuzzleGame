@@ -36,15 +36,21 @@ public class ScaleGrayAreas : MonoBehaviour
 
     [SerializeField]
     private float timeToLerp;
+    [SerializeField]
+    private AnimationCurve enableAccCurve;
+
     private float currentTime = 0;
     private bool enableANewSector;
 
     private void changeGrayAreaToColor( int seasonindex )
     {
         currentTime += Time.deltaTime;
+
         foreach ( Material m in allMaterials[ sectorToChange ] )
         {
-            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 0, 400, currentTime / timeToLerp ) );
+            float value = enableAccCurve.Evaluate((currentTime / timeToLerp));
+            m.SetFloat( Shader.PropertyToID( "_Radius" ), Mathf.Lerp( 0, 200, value ) );
+            
         }
         if ( (currentTime / timeToLerp) >= 1 )
         {
