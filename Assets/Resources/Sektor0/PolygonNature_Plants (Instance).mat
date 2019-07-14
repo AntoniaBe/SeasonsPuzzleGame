@@ -92,11 +92,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Big_Wave: 7.7
-    - _Big_WindAmount: 0.2
-    - _Big_Windspeed: 0.75
+    - _Big_Wave: 0
+    - _Big_WindAmount: 0
+    - _Big_Windspeed: 0
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -110,9 +110,9 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Radius: 0
-    - _Small_Wave: 3.48
-    - _Small_WindAmount: 0.2
-    - _Small_WindSpeed: 0.53
+    - _Small_Wave: 0
+    - _Small_WindAmount: 0
+    - _Small_WindSpeed: 0
     - _SmoothnessTextureChannel: 0
     - _Softness: 0
     - _SpecularHighlights: 1

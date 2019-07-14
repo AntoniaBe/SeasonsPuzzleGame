@@ -96,7 +96,7 @@ Material:
     - _Big_WindAmount: 0.2
     - _Big_Windspeed: 0.1
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
@@ -109,10 +109,10 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Radius: 20
-    - _Small_Wave: 1
-    - _Small_WindAmount: 0.2
-    - _Small_WindSpeed: 0.1
+    - _Radius: 400
+    - _Small_Wave: 0
+    - _Small_WindAmount: 0
+    - _Small_WindSpeed: 0
     - _SmoothnessTextureChannel: 0
     - _Softness: 0
     - _SpecularHighlights: 1
