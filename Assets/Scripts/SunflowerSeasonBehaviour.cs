@@ -22,7 +22,7 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
     public override void UpdateRepresentation(Season currentSeason){
         base.UpdateRepresentation(currentSeason);
         var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
-        Debug.Log(currentSeason + ", " + lastSeason);
+
         switch(currentSeason){
             case Season.SPRING:
                 if(lastSeason == Season.WINTER){
@@ -37,7 +37,6 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
                 break;
 
             case Season.SUMMER:
-            
                 if(lastSeason == Season.SPRING){
                     sunflowerAnim.Play("Bloom");
                     LerpColor(blossomColors[1]);

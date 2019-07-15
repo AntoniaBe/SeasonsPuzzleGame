@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class BirdKeyFinder : MonoBehaviour
 {
@@ -20,12 +21,12 @@ public class BirdKeyFinder : MonoBehaviour
 
         StateManager stateManager = StateManager.Instance;
         // pick up key only when tutorial is done and player looks towards the key
-        if(inFOV(key.position) && stateManager.TutorialDone()){
+        if(inFOV(key.position) && stateManager.TutorialDone() && behaviour.flyingSeasons.Contains(SeasonsManager.Instance.CurrentSeason)){
             behaviour.SetPickUpTarget(key);
         }
-        // else{
-        //     behaviour.GoIdle();
-        // }
+        else{
+            behaviour.GoIdle();
+        }
     }
 
     private bool inFOV(Vector3 pos){

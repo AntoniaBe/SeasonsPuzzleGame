@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: eca3c00ef1cc6ce45bfade23ebc4ab1e, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.18028396, g: 0.22571427, b: 0.30692327, a: 1}
+  m_IndirectSpecularColor: {r: 0.20434661, g: 0.25949228, b: 0.3014117, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -439,6 +439,36 @@ PrefabInstance:
     - target: {fileID: 1674818479, guid: eb3be6f67254b704daab722293d5a9f8, type: 3}
       propertyPath: MinDistance
       value: 2.1165843
+      objectReference: {fileID: 0}
+    - target: {fileID: 139090374034174595, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 13.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 139090374034174595, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3.2455916
+      objectReference: {fileID: 0}
+    - target: {fileID: 232719491045367119, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 233549154210611421, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: ShapeModule.m_Scale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 233549154210611421, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 40.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383738588181201577, guid: eb3be6f67254b704daab722293d5a9f8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4145437238145476200, guid: eb3be6f67254b704daab722293d5a9f8, type: 3}
@@ -3103,3 +3133,25 @@ PrefabInstance:
     - {fileID: 2460521768721653124, guid: 64360fe0b68d3bc4cb3e43803300068f, type: 3}
     - {fileID: 2460521768721653121, guid: 64360fe0b68d3bc4cb3e43803300068f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 64360fe0b68d3bc4cb3e43803300068f, type: 3}
+--- !u!1 &2050050738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2460521768721653120, guid: 64360fe0b68d3bc4cb3e43803300068f,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050050737}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2050050739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050050738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385f299a8b369e743804348f4ac2e56e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  springSky: {fileID: 2100000, guid: 3777c2609a2482a48a60ef07326b3646, type: 2}
+  summerSky: {fileID: 2100000, guid: eca3c00ef1cc6ce45bfade23ebc4ab1e, type: 2}
+  autumnSky: {fileID: 2100000, guid: 5b932b126f2d87042b08a93fe1c2db05, type: 2}
+  winterSky: {fileID: 2100000, guid: 5b932b126f2d87042b08a93fe1c2db05, type: 2}

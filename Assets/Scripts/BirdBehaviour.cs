@@ -28,7 +28,8 @@ public class BirdBehaviour : MonoBehaviour
     private Transform targetTransform;
 
     [SerializeField]
-    private Season[] flyingSeasons;
+    public Season[] flyingSeasons;
+
     [SerializeField]
     private float peckingTime;
     [SerializeField]

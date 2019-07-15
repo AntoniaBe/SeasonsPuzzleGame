@@ -17,26 +17,22 @@ public override void UpdateRepresentation(Season currentSeason)
         switch(currentSeason){
             case Season.SPRING:
             if(lastSeason == Season.WINTER){
-                GrowLittle();
+                    GrowLittle();
                 }else{
-     
+                    GrowBackLittle();
                 }
                 break;
 
 
             case Season.SUMMER:
-             if(lastSeason == Season.SPRING){
-                    GrowFull();
-                }else{
-                     return;
-                }
+                GrowFull();
                 break;
             
             case Season.AUTUMN:
                 if(lastSeason == Season.SUMMER){
                     GrowBackLittle();
                 }else{
-                return;
+                    GrowLittle();
                 }
                 break;
 
@@ -45,7 +41,7 @@ public override void UpdateRepresentation(Season currentSeason)
                 if(lastSeason == Season.AUTUMN){
                    GrowBackFull();
                 }else{
-                    return;
+                   GrowBackFull();
                 }
                 break;
 
