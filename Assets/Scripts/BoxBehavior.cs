@@ -9,10 +9,12 @@ public class BoxBehavior : MonoBehaviour
     public AudioSource closedChestAudioSource;
 
     private void Start(){
+        isOpened = false;
         GameObject lid = transform.GetChild(0).gameObject;
         if (lid.GetComponent<VRTK_InteractableObject>())
         {
-            lid.GetComponent<VRTK_InteractableObject>().InteractableObjectGrabbed += PlayClosedChestSound;
+            Debug.Log(lid);
+            lid.GetComponent<VRTK_InteractableObject>().InteractableObjectTouched += PlayClosedChestSound;
         }
         else
         {
@@ -35,6 +37,7 @@ public class BoxBehavior : MonoBehaviour
     {
         if (!isOpened)
         {
+            Debug.Log("play sound");
             closedChestAudioSource.Play();
         }
     }

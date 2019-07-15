@@ -10,7 +10,6 @@ public class SoundManager : SeasonObjectBehaviour
     public AudioClip winterClip;
     public AudioSource audioSource;
     public AudioSource swipeTransition;
-
     public AudioSource riverAudioSource;
     public AudioSource successClipAudioSource;
     private float riverVolume;
@@ -20,7 +19,7 @@ public class SoundManager : SeasonObjectBehaviour
     {
         base.UpdateRepresentation(currentSeason);
         swipeTransition.Play();
-        riverAudioSource.volume = 0.1f;
+        riverAudioSource.volume = 0.2f;
         audioSource.volume = 1f;
 
         switch (currentSeason)
