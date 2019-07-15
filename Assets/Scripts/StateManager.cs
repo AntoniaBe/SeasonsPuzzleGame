@@ -96,6 +96,7 @@ public class StateManager : Singleton<StateManager>
     public void ChestOpen()
     {
         grayManager.enableSector(2);
+        soundManager.PlaySuccessClip();
     }
 
     private void OnSeasonUpdate(Season season)
