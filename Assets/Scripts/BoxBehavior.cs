@@ -11,9 +11,9 @@ public class BoxBehavior : MonoBehaviour
     private void Start(){
         isOpened = false;
         GameObject lid = transform.GetChild(0).gameObject;
+        // add event whenever chest is touched and play the closed chest sound
         if (lid.GetComponent<VRTK_InteractableObject>())
         {
-            Debug.Log(lid);
             lid.GetComponent<VRTK_InteractableObject>().InteractableObjectTouched += PlayClosedChestSound;
         }
         else
@@ -24,6 +24,7 @@ public class BoxBehavior : MonoBehaviour
 
     void OnCollisionEnter (Collision col)
     {
+        // open the chest with the key
         if(col.gameObject.tag == "Key" && !isOpened)
         {
             gameObject.transform.Find("SM_Prop_Chest_Wood_Lid").GetComponent<Animator>().Play("Open");

@@ -12,6 +12,7 @@ public class BirdKeyFinder : MonoBehaviour
 
     private void Start(){
         behaviour = GetComponent<BirdBehaviour>();
+        // fly towards the South position at the start of the game
         behaviour.ChangeTarget(behaviour.GetSouthPosition().position);
     }
 
@@ -31,7 +32,6 @@ public class BirdKeyFinder : MonoBehaviour
 
     private bool inFOV(Vector3 pos){
         var screenPoint = Camera.main.WorldToViewportPoint(pos);
-        // Debug.Log(screenPoint);
         return screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
     }
 }

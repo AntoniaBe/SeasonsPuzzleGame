@@ -42,6 +42,7 @@ public class SeasonController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // rotates all the season stones around the forward vector of the controller
         if (degreesLeftOfSeasonStoneRotation > 0)
         {
             foreach (KeyValuePair<Season, GameObject> entry in seasonStones)
@@ -61,11 +62,13 @@ public class SeasonController : MonoBehaviour
 
     private void TouchEnd(object sender, ControllerInteractionEventArgs e)
     {
+        // prevents switching seasons too fast
         if (Time.time - lastSeasonSwitchTime < seasonSwitchDuration)
             return;
 
         lastSeasonSwitchTime = Time.time;
 
+        // do nothing if the touchSwipeThreshold is not reached 
         if (Mathf.Abs(startTouchX - lastTouchX) < touchSwipeThreshold)
             return;
 
@@ -90,6 +93,7 @@ public class SeasonController : MonoBehaviour
             }
         }
 
+        // set the tutorial arrow on the controller unactive after first swipe
         Transform arrow = transform.Find("arrow");
         if (arrow != null)
         {
@@ -116,6 +120,7 @@ public class SeasonController : MonoBehaviour
 
         int rotation = 0;
 
+        // Put the stones at the right position around the controller
         if (SeasonsManager.Instance.NextSeason == seasonStone.season)
             rotation = -90;
         else if (SeasonsManager.Instance.PreviousSeason == seasonStone.season)
@@ -132,6 +137,7 @@ public class SeasonController : MonoBehaviour
     private void RotateSeasonStonesInDegrees(int degrees)
     {
         if (degrees < 0)
+            // making sure that the value is always negative
             degreesPerFixedFrameOfSeasonStoneRotation = -Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
         else
             degreesPerFixedFrameOfSeasonStoneRotation = Mathf.Abs(degreesPerFixedFrameOfSeasonStoneRotation);
@@ -146,20 +152,7 @@ public class SeasonController : MonoBehaviour
 
         glow.transform.localScale = seasonStoneGameObject.transform.GetChild(0).transform.localScale * 0.5f;
 
-        // GameObject central = glow.transform.Find("central").gameObject;
-        // GameObject dust = glow.transform.Find("dust").gameObject;
-        // GameObject energy = glow.transform.Find("energy").gameObject;
         GameObject energy_central = glow.transform.Find("energy_central").gameObject;
-        // GameObject smoke = glow.transform.Find("smoke").gameObject;
-
-        // central.GetComponent<ParticleSystem>().startSize = 2;
-        // dust.GetComponent<ParticleSystem>().startSize = 0.05f;
-        // energy.GetComponent<ParticleSystem>().startSize = 3;
         energy_central.GetComponent<ParticleSystem>().startSize = 2;
-        // smoke.GetComponent<ParticleSystem>().startSize = 0.02f;
-
-        // central.GetComponent<ParticleSystem>().startLifetime = 2;
-        // dust.GetComponent<ParticleSystem>().startLifetime = 0.3f;
-        // smoke.GetComponent<ParticleSystem>().startLifetime = 0.7f;
     }
 }

@@ -79,6 +79,7 @@ public class SeasonsManager : Singleton<SeasonsManager>
     private void Awake()
     {
         UpdateSeasonEvent = new SeasonEvent();
+        // order is important!
         seasons = new Season[4] {Season.SPRING, Season.SUMMER, Season.AUTUMN, Season.WINTER};
         currentSeasonIndex = 0;
     }

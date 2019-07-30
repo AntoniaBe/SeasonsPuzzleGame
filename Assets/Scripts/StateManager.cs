@@ -38,6 +38,7 @@ public class StateManager : Singleton<StateManager>
     }
 
     private void Start(){
+        // set initial values for interactable objects
         summerStone.IsGrabbable = false;
         springStone.IsGrabbable = false;
         autumnStone.IsGrabbable = false;
@@ -69,6 +70,7 @@ public class StateManager : Singleton<StateManager>
 
     private void StoneTaken(GrabbableSeasonStone stone)
     {
+        // changes world and object states according the the grabbed season stone
         if(stone.season == Season.WINTER){
             soundManager.PlaySuccessClip();
             grayManager.enableSector(0);
@@ -111,14 +113,6 @@ public class StateManager : Singleton<StateManager>
         {
             bird.SetActive(true);
         }
-        else
-        {
-            // bird.SetActive(false);
-        }
-
-        //For test only
-        //if(season == Season.SPRING)
-            //bird.GetComponent<BirdBehaviour>().PickUp(key.transform);
     }
 
     public bool TutorialDone(){

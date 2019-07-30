@@ -21,6 +21,7 @@ public class Seed : MonoBehaviour
         
         foreach (var bird in birds)
         {
+            // let the birds fly towards the seed
             bird.SetPickUpTarget(transform);
         }
     }

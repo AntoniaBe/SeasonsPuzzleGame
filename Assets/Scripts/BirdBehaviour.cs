@@ -50,14 +50,14 @@ public class BirdBehaviour : MonoBehaviour
     private void Start(){
         animator = GetComponent<Animator>();
         animator.SetBool("Flying", true);
-        // start in winter -> fly to south
+        // start in winter -> fly to south position in world
         ChangeTarget(south.position);
         isPecking = false;
     }
 
     private void Update()
     {
-        // pecking seeds
+        // if bird is pecking, don't change anything
         if (isPecking)
             return;
 
@@ -65,6 +65,7 @@ public class BirdBehaviour : MonoBehaviour
         if(targetTransform != null && target != south.position)
             target = targetTransform.position;
 
+        // add some randomness on the x and z axis to the target, so that the birds fly differently
         target += new Vector3(Random.Range(-0.25f, 0.25f), 0, Random.Range(-0.25f, 0.25f));
 
         // continue flying towards target
@@ -75,7 +76,7 @@ public class BirdBehaviour : MonoBehaviour
             Debug.DrawRay(transform.position, transform.forward, Color.green);
             RaycastHit hit;
             var targetDir = target - transform.position;
-
+            // if the distance to the player is lower 1.5 the bird should fly up
             if (Physics.Raycast(transform.position, transform.forward, out hit, 1.5f))
             {
                 if (hit.collider.CompareTag("Player"))
@@ -84,6 +85,7 @@ public class BirdBehaviour : MonoBehaviour
                 }
             }
 
+            // allways rotate to the target
             var targetRotation = Vector3.RotateTowards(transform.forward, targetDir, steeringSpeed * Time.deltaTime, 0.0f);
             transform.rotation = Quaternion.LookRotation(targetRotation);
                 
@@ -91,7 +93,7 @@ public class BirdBehaviour : MonoBehaviour
             dist = dist > 1 ? 1 : dist;
             var breakFactor = targetTransform == null ? 1 : dist * breakForce;
 
-            // fly forwards
+            // fly forwards in target direction
             var pos = transform.position;
             pos += transform.forward * speed * Time.deltaTime * breakFactor;
             pos.y = pos.y <= groundLevelOffset ? groundLevelOffset : pos.y; 
@@ -124,10 +126,11 @@ public class BirdBehaviour : MonoBehaviour
                     targetTransform.parent = claws;
                     targetTransform = null;
                 }
+                
                 // start idle routine
                 GoIdle();
             }else{
-                // start idle routine
+                // start idle routine if there is no target
                 GoIdle();
             }
         }

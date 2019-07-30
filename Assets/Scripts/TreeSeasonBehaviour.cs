@@ -14,8 +14,6 @@ public class TreeSeasonBehaviour : SeasonObjectBehaviour
     public Vector4 smallSpeedValues;
     public Vector4 smallAmountValues;
 
-
-
     public override void UpdateRepresentation(Season currentSeason)
     {
         base.UpdateRepresentation(currentSeason);

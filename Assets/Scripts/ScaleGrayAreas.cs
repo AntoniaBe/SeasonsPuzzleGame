@@ -94,17 +94,6 @@ public class ScaleGrayAreas : MonoBehaviour
 
         for ( int s = 0; s < sektoren.Length; s++ )
         {
-            //  string newMaterialname = "Sektor" + s + "/PolygonNature_MountainSkybox (Instance)";
-            // Material newMaterial = (Material) Resources.Load( newMaterialname, typeof( Material ) );
-
-/*
-            List<Material> tempList = new List<Material>();
-            foreach ( Material m in allMaterials[s] )
-            {
-                tempList.Add( m );
-            }
-            tempList.Add( newMaterial );
-            allMaterials[ s ] = tempList.ToArray();*/
             changeToSektorMaterial( sektoren[ s ].transform, s );
         }
 

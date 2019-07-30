@@ -45,11 +45,13 @@ public class GrabbableSeasonStone : MonoBehaviour
             if (seasonController == null)
                 throw new Exception("The interacting controller has no SeasonController script component");
 
+    	    // remove rigidbody so that the season stone stays attached to the controller
             if(rb != null){
                 rb.detectCollisions = false;
                 Destroy(rb);
             }
 
+            // deactivate collider of season stone to prevent unwanted collisions with gameobjects
             GetComponent<Collider>().enabled = false;
             
             seasonController.AttachSeasonStone(this);
@@ -65,9 +67,9 @@ public class GrabbableSeasonStone : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        // makes a stone fall down when touched with a stick tagged object
         if(other.gameObject.CompareTag("Stick") && GetComponent<Rigidbody>() == null && season == Season.SPRING){
             rb = gameObject.AddComponent<Rigidbody>();
-            //TODO weight
             IsGrabbable = true;
         }
     }

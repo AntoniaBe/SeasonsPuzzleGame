@@ -23,7 +23,8 @@ public class SunflowerSeasonBehaviour : SeasonObjectBehaviour
         base.UpdateRepresentation(currentSeason);
         var lastSeason = SeasonsManager.Instance.lastActivatedSeason;
 
-        switch(currentSeason){
+        switch(currentSeason)
+        {
             case Season.SPRING:
                 if(lastSeason == Season.WINTER){
                     sunflowerAnim.Play("Grow");
